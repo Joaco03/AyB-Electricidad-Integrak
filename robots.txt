@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aybenergiaintegral.com.ar/sitemap.xml
