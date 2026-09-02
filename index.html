@@ -3,227 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '28043557855329111');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=28043557855329111&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<!-- Meta Pixel - Eventos de conversión (WhatsApp / Email / Teléfono) -->
-<script>
-document.addEventListener('click', function (e) {
-  var a = e.target && e.target.closest ? e.target.closest('a') : null;
-  if (!a || !a.href || typeof fbq !== 'function') return;
-  var h = a.href.toLowerCase();
-  if (h.indexOf('wa.me') > -1 || h.indexOf('whatsapp.com') > -1 || h.indexOf('api.whatsapp') > -1) {
-    fbq('track', 'Lead', { content_name: 'WhatsApp' });
-  } else if (h.indexOf('mailto:') === 0 || h.indexOf('mail.google.com') > -1) {
-    fbq('track', 'Lead', { content_name: 'Pedir presupuesto (email)' });
-  } else if (h.indexOf('tel:') === 0) {
-    fbq('track', 'Lead', { content_name: 'Llamada telefónica' });
-  }
-}, true);
-</script>
-<!-- End Meta Pixel Eventos -->
-
-<!-- ░░ SEO PRINCIPAL ░░ -->
-<title>Electricista Industrial en Paraná | AyB Energía Integral</title>
-<meta name="description" content="Electricista industrial en Paraná, Entre Ríos: instalaciones, media tensión, tableros, automatización y mantenimiento para industria y agro. Pedí tu presupuesto.">
-<meta name="keywords" content="electricista industrial Paraná, servicios eléctricos industriales Entre Ríos, automatización industrial, instalaciones eléctricas agro, media tensión, tableros eléctricos, mantenimiento industrial, sector agroindustrial">
-<meta name="author" content="AyB Energía Integral">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://aybenergiaintegral.com.ar/">
-<meta name="theme-color" content="#1B2733">
-
-<!-- ░░ SEO LOCAL (geo) ░░ -->
-<meta name="geo.region" content="AR-E">
-<meta name="geo.placename" content="Paraná, Entre Ríos, Argentina">
-<meta name="geo.position" content="-31.7413;-60.5115">
-<meta name="ICBM" content="-31.7413, -60.5115">
-
-<!-- ░░ OPEN GRAPH (Facebook / WhatsApp) ░░ -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AyB Energía Integral">
-<meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Electricista Industrial en Paraná | AyB Energía Integral">
-<meta property="og:description" content="Servicios eléctricos industriales y automatización para industria y agro en Paraná, Entre Ríos. Instalaciones, media tensión, tableros y mantenimiento.">
-<meta property="og:url" content="https://aybenergiaintegral.com.ar/">
-<meta property="og:image" content="https://aybenergiaintegral.com.ar/img/og-image.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="AyB Energía Integral - Servicios eléctricos industriales en Paraná, Entre Ríos">
-
-<!-- ░░ TWITTER / X ░░ -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Electricista Industrial en Paraná | AyB Energía Integral">
-<meta name="twitter:description" content="Servicios eléctricos industriales y automatización para industria y agro en Paraná, Entre Ríos.">
-<meta name="twitter:image" content="https://aybenergiaintegral.com.ar/img/og-image.png">
-
-<!-- ░░ FAVICON ░░ -->
-<link rel="icon" type="image/png" sizes="480x480" href="img/favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-
-<!-- ░░ DATOS ESTRUCTURADOS (Schema.org LocalBusiness) ░░ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Electrician",
-  "@id": "https://aybenergiaintegral.com.ar/#business",
-  "name": "AyB Energía Integral",
-  "description": "Servicios eléctricos industriales y automatización para la industria y el agro. Instalaciones, media tensión, tableros eléctricos y mantenimiento industrial en Paraná, Entre Ríos.",
-  "url": "https://aybenergiaintegral.com.ar/",
-  "email": "aybenergiaintegral@gmail.com",
-  "telephone": "+5493434057889",
-  "image": "https://aybenergiaintegral.com.ar/img/AyB_EnergiaIntegral_blanco.png",
-  "logo": "https://aybenergiaintegral.com.ar/img/AyB_EnergiaIntegral_blanco.png",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paraná",
-    "addressRegion": "Entre Ríos",
-    "addressCountry": "AR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -31.7413,
-    "longitude": -60.5115
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Paraná" },
-    { "@type": "State", "name": "Entre Ríos" }
-  ],
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+5493434057889",
-    "contactType": "customer service",
-    "areaServed": "AR",
-    "availableLanguage": "Spanish"
-  }],
-  "sameAs": [
-    "https://www.instagram.com/aybenergiaintegral/",
-    "https://www.facebook.com/profile.php?id=61591211913274"
-  ],
-  "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Instalaciones eléctricas industriales" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Media tensión" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización y control" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tableros eléctricos" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento industrial" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Servicios eléctricos para el sector agroindustrial" } }
-  ]
-}
-</script>
-
-<!-- ░░ DATOS ESTRUCTURADOS (FAQ para motores de IA y Google) ░░ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Qué servicios eléctricos industriales ofrece AyB Energía Integral?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ofrecemos instalaciones eléctricas industriales, media tensión, tableros eléctricos, automatización y control, mantenimiento industrial y servicios eléctricos para el sector agroindustrial. Cubrimos el ciclo eléctrico completo de tu planta, con equipo propio y trabajos bajo norma."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿En qué zona trabaja AyB Energía Integral?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Estamos radicados en Paraná y trabajamos en toda la provincia de Entre Ríos. Nos trasladamos hasta tu planta o establecimiento para relevar el trabajo en el lugar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Trabajan con media tensión y tableros eléctricos?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Realizamos trabajos de media tensión, armado y mantenimiento de tableros eléctricos, y automatización de procesos industriales, siempre bajo la normativa vigente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Hacen instalaciones y mantenimiento para el sector agroindustrial?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Trabajamos con plantas industriales y con el sector agroindustrial de la región (acopios, silos y establecimientos productivos), tanto en instalaciones nuevas como en mantenimiento y mejoras."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuántos años de experiencia tienen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Contamos con 10 años de trayectoria brindando servicios eléctricos industriales y de automatización para la industria y el agro en Entre Ríos, con equipo propio y respuesta rápida."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo pido un presupuesto o los contacto?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Podés escribirnos por WhatsApp al +54 9 3434 05-7889 o por email a aybenergiaintegral@gmail.com. Coordinamos una visita para relevar tu proyecto y te pasamos una propuesta."
-      }
-    }
-  ]
-}
-</script>
-
 <script src="./support.js"></script>
 </head>
 <body>
-
-<!-- ░░ CONTENIDO SEO DE RESPALDO (visible si el JS no se ejecuta / crawlers) ░░ -->
-<noscript>
-  <h1>AyB Energía Integral — Electricista industrial en Paraná, Entre Ríos</h1>
-  <p>Servicios eléctricos industriales y automatización para la industria y el agro en Paraná y toda la provincia de Entre Ríos. Instalaciones industriales, media tensión, tableros eléctricos, automatización y control, mantenimiento industrial y trabajos para el sector agroindustrial. Equipo propio, trabajos bajo norma y respuesta rápida.</p>
-  <h2>Nuestros servicios</h2>
-  <ul>
-    <li>Instalaciones eléctricas industriales</li>
-    <li>Media tensión</li>
-    <li>Automatización y control</li>
-    <li>Tableros eléctricos</li>
-    <li>Mantenimiento industrial</li>
-    <li>Servicios eléctricos para el sector agroindustrial</li>
-  </ul>
-  <h2>Contacto</h2>
-  <p>Email: <a href="mailto:aybenergiaintegral@gmail.com">aybenergiaintegral@gmail.com</a> · Teléfono / WhatsApp: +54 9 3434 05-7889 · Paraná, Entre Ríos, Argentina.</p>
-</noscript>
-
 <x-dc>
 <helmet>
+<title>AyB Energía Integral | Electricidad industrial y automatización en Paraná, Entre Ríos</title>
+<meta name="description" content="Servicios eléctricos industriales y automatización para industria y agro en Paraná, Entre Ríos. Instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos. Pedí tu presupuesto.">
+<meta name="keywords" content="electricista industrial Paraná, instalaciones eléctricas industriales Entre Ríos, media tensión Entre Ríos, tableros eléctricos para silos, automatización galpones avícolas, PLC industrial, variadores de frecuencia, mantenimiento eléctrico agroindustria, AyB Energía Integral">
+<meta name="author" content="AyB Energía Integral">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="AR-E">
+<meta name="geo.placename" content="Paraná, Entre Ríos">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AyB Energía Integral">
+<meta property="og:title" content="AyB Energía Integral | Electricidad industrial y automatización">
+<meta property="og:description" content="Instalaciones industriales, media y alta tensión, tableros y automatización en Paraná y toda la provincia de Entre Ríos. Equipo propio, bajo norma, respuesta rápida.">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="img/AyB_EnergiaIntegral_blanco.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AyB Energía Integral | Electricidad industrial y automatización">
+<meta name="twitter:description" content="Servicios eléctricos industriales y automatización para la industria y el agro de Entre Ríos.">
+<meta name="twitter:image" content="img/AyB_EnergiaIntegral_blanco.png">
+<link rel="icon" href="img/AyB_rayo_naranja-blanco.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ElectricalContractor","name":"AyB Energía Integral","description":"Servicios eléctricos industriales y automatización para la industria y el agro: instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos, mantenimiento y retrofit.","email":"aybenergiaintegral@gmail.com","areaServed":[{"@type":"City","name":"Paraná"},{"@type":"City","name":"Crespo"},{"@type":"City","name":"Viale"},{"@type":"City","name":"María Grande"},{"@type":"City","name":"Diamante"},{"@type":"City","name":"Nogoyá"},{"@type":"City","name":"Oro Verde"},{"@type":"State","name":"Entre Ríos"}],"address":{"@type":"PostalAddress","addressLocality":"Paraná","addressRegion":"Entre Ríos","addressCountry":"AR"},"sameAs":["https://www.instagram.com/aybenergiaintegral/","https://www.facebook.com/profile.php?id=61591211913274"],"knowsAbout":["Instalaciones eléctricas industriales","Media y alta tensión","Automatización y control","Tableros eléctricos","Tableros eléctricos para silos","Automatización de galpones avícolas","PLC","Variadores de frecuencia","Mantenimiento industrial","Retrofit de máquinas"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1635335874521-7987db781153?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w1">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1566417108845-5ba9c2f9ea1b?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w2">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1558054665-fbe00cd7d920?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w3">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1566417110090-6b15a06ec800?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w4">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1554021279-722f30a555be?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w5">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&amp;fit=crop&amp;w=1100&amp;q=70" data-resource-id="w6">
-<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&amp;fit=crop&amp;w=1200&amp;q=72" data-resource-id="plant">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Inter',sans-serif;background:#1B2733;color:#fff;-webkit-font-smoothing:antialiased}
   ::selection{background:#F47A1F;color:#1B2733}
+  a{color:#FF9A52}
+  a:hover{color:#F47A1F}
   @keyframes floaty{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
   @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   @keyframes flick{0%,92%,96%,100%{opacity:1}94%{opacity:.55}98%{opacity:.8}}
@@ -285,7 +100,7 @@ document.addEventListener('click', function (e) {
     </div>
     <div style="display:flex;justify-content:center;align-items:center;position:relative" data-hero-bolt="">
       <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(244,122,31,.28),transparent 65%);filter:blur(8px)"></div>
-      <img src="img/AyB_rayo_naranja-blanco.png" alt="Isotipo de AyB Energía Integral, electricista industrial en Paraná" style="position:relative;height:min(64vh,520px);width:auto;animation:floaty 6s ease-in-out infinite,flick 7s linear infinite;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))">
+      <img src="img/AyB_rayo_naranja-blanco.png" alt="" loading="lazy" style="position:relative;height:min(64vh,520px);width:auto;animation:floaty 6s ease-in-out infinite,flick 7s linear infinite;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))">
     </div>
   </div>
 </section>
@@ -306,20 +121,257 @@ document.addEventListener('click', function (e) {
         <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Lo que hacemos</div>
         <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;max-width:14ch">Servicios para industria y agro</h2>
       </div>
-      <p style="max-width:380px;color:#9FAAB4;font-size:16px;line-height:1.6">Cubrimos el ciclo eléctrico completo de tu planta, desde la media tensión hasta el control de proceso.</p>
+      <p style="max-width:380px;color:#9FAAB4;font-size:16px;line-height:1.6">Cubrimos el ciclo eléctrico completo de tu planta, desde la media tensión hasta el control de proceso. Tocá cada servicio para ver el detalle técnico.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
-      <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
-        <a href="{{ waUrl }}" target="_blank" rel="noopener" style="position:relative;display:block;background:#131C25;border:1px solid rgba(255,255,255,.08);padding:36px 30px 40px;text-decoration:none;color:#fff;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:transform .25s,border-color .25s,box-shadow .25s" style-hover="transform:translateY(-6px);border-color:#F47A1F;box-shadow:0 20px 40px rgba(0,0,0,.45)">
-          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1)">{{ s.n }}</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start">
+
+      <!-- 01 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t1 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">01</div>
           <div style="position:relative">
             <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
-            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.1;margin-bottom:12px">{{ s.t }}</h3>
-            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">{{ s.d }}</p>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Instalaciones eléctricas industriales</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">Obra eléctrica completa, desde el tablero general hasta el último motor. Instalaciones nuevas y ampliaciones en planta en funcionamiento.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o1 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c1 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
           </div>
-        </a>
-      </sc-for>
+        </div>
+        <sc-if value="{{ o1 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Instalación eléctrica completa de plantas y galpones</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Tendido de cableado de potencia y comando</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Protecciones y puesta a tierra</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Alimentación y puesta en marcha de motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Iluminación LED industrial</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Instalación de grupos electrógenos y transferencias automáticas</li>
+            </ul>
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- 02 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t2 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">02</div>
+          <div style="position:relative">
+            <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Media y alta tensión</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">Es el servicio que casi no se consigue en Entre Ríos. Hoy la mayoría de las plantas de la región traen técnicos de otra provincia cada vez que necesitan tocar la media tensión.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o2 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c2 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ o2 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Mantenimiento de instalaciones de media y alta tensión</li>
+            </ul>
+            
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- 03 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t3 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">03</div>
+          <div style="position:relative">
+            <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Automatización y control</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">Procesos que hoy se manejan a mano pasan a funcionar solos, con lógica programada y sensores que reaccionan antes que una persona.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o3 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c3 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ o3 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>PLC para automatizar procesos completos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Sensores de temperatura y humedad</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Sensores de nivel y de temperatura en silo</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Contactores y variadores de frecuencia</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Programación y puesta en marcha</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Temporizadores y programadores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Alarmas por alta temperatura, falta de agua o falla eléctrica</li>
+            </ul>
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- 04 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t4 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">04</div>
+          <div style="position:relative">
+            <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Tableros eléctricos</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">Diseño, armado y mantenimiento de tableros de comando y protección, dimensionados para la carga real de tu planta.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o4 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c4 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ o4 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Tableros de comando y protección</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Tableros eléctricos para silos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Arranque y protección de motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Variadores de frecuencia para motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Mantenimiento de tableros existentes</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Detección de fallas eléctricas</li>
+            </ul>
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- 05 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t5 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">05</div>
+          <div style="position:relative">
+            <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Mantenimiento industrial</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">Revisar antes de que pare, no después de que paró.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o5 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c5 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ o5 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Revisión de tableros</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Revisión de motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Revisión de sensores y automatismos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Ajustes y calibración</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Mantenimiento preventivo y reparación de instalaciones</li>
+            </ul>
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- 06 -->
+      <div class="rv" style="position:relative;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);transition:border-color .25s" style-hover="border-color:#F47A1F">
+        <div onClick="{{ t6 }}" role="button" tabindex="0" style="cursor:pointer;position:relative;padding:36px 30px 28px">
+          <div style="position:absolute;top:-10px;right:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:96px;line-height:1;color:rgba(244,122,31,.1);pointer-events:none">06</div>
+          <div style="position:relative">
+            <div style="width:42px;height:4px;background:#F47A1F;margin-bottom:22px"></div>
+            <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;line-height:1.15;margin-bottom:12px">Modernización y retrofit</h3>
+            <p style="color:#9FAAB4;font-size:15px;line-height:1.6">No hace falta reemplazar todo el equipo. Se actualiza la parte de control y la máquina sigue trabajando, con menos consumo y menos mano de obra.</p>
+            <div style="margin-top:22px;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F47A1F">
+              <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid rgba(244,122,31,.5);border-radius:3px;font-size:14px;line-height:1">
+                <sc-if value="{{ o6 }}" hint-placeholder-val="{{ false }}">−</sc-if>
+                <sc-if value="{{ c6 }}" hint-placeholder-val="{{ true }}">+</sc-if>
+              </span>
+              <span>Detalle técnico</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ o6 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 30px 34px">
+            <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Reemplazo de instalaciones antiguas por sistemas automáticos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Retrofit de máquinas y equipamiento existente</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Actualización de tableros obsoletos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Ahorro de energía y de mano de obra</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Soluciones a medida cuando la solución estándar del mercado no ajusta</li>
+            </ul>
+            <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 18px;border-radius:4px" style-hover="background:#FF9A52">Consultar por WhatsApp</a>
+          </div>
+        </sc-if>
+      </div>
+
     </div>
+
+    <!-- ░ QUÉ RESOLVEMOS EN TU RUBRO ░ -->
+    <div class="rv" style="position:relative;margin-top:72px;background:#131C25;border:1px solid rgba(255,255,255,.08);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)">
+      <div style="position:absolute;inset:0;opacity:.08;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23F47A1F' stroke-width='1.6'%3E%3Cpath d='M0 36h44l26 26h110'/%3E%3Cpath d='M180 112h-46l-26-26H24'/%3E%3Cpath d='M24 0v34l22 22v56l-22 22v46'/%3E%3Cpath d='M156 180v-32l-22-22V78l22-22V0'/%3E%3Cpath d='M70 62v118'/%3E%3Cpath d='M108 86V0'/%3E%3Cpath d='M0 150h50l20-20'/%3E%3Cpath d='M180 30h-40l-18 18'/%3E%3C/g%3E%3Cg fill='%23F47A1F'%3E%3Ccircle cx='44' cy='36' r='4'/%3E%3Ccircle cx='70' cy='62' r='4'/%3E%3Ccircle cx='134' cy='112' r='4'/%3E%3Ccircle cx='108' cy='86' r='4'/%3E%3Ccircle cx='24' cy='34' r='3.2'/%3E%3Ccircle cx='156' cy='148' r='3.2'/%3E%3Ccircle cx='50' cy='150' r='3.2'/%3E%3Ccircle cx='140' cy='30' r='3.2'/%3E%3C/g%3E%3C/svg%3E&quot;);background-repeat:repeat;pointer-events:none"></div>
+      <div style="position:relative;padding:56px 44px 60px">
+        <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Por rubro</div>
+        <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.05;text-transform:uppercase;margin-bottom:44px">Qué resolvemos en tu rubro</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px">
+          <div>
+            <h4 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding-bottom:14px;border-bottom:2px solid #F47A1F;margin-bottom:22px">Galpones avícolas</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Instalaciones eléctricas completas de galpones</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Tableros eléctricos de comando y protección</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de ventiladores y extractores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de bombas de agua</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control automático de bebederos y sistemas de agua</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de alimentadores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control de iluminación por horarios y etapas de crianza</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Temporizadores y programadores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Sensores de temperatura y humedad</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control automático de ventilación según temperatura</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Alarmas por alta temperatura, falta de agua o falla eléctrica</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Arranque y protección de motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Variadores de frecuencia para motores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Instalación de grupos electrógenos y transferencias automáticas</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Iluminación LED industrial</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Mantenimiento preventivo y reparación de instalaciones</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding-bottom:14px;border-bottom:2px solid #F47A1F;margin-bottom:22px">Plantas de silos y acopio</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Tableros eléctricos para silos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Arranque de norias y elevadores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de sinfines</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control de cintas transportadoras</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de ventiladores de aireación</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Sensores de nivel de cereal</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Sensores de temperatura dentro de silos</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Automatización de secadoras</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control de motores mediante variadores</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Control de bombas</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Iluminación de planta</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Mantenimiento de tableros</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Detección de fallas eléctricas</li>
+              <li style="display:flex;gap:11px;color:#AEB9C3;font-size:14.5px;line-height:1.5"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>PLC para automatizar procesos completos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -343,24 +395,45 @@ document.addEventListener('click', function (e) {
   </div>
 </section>
 
-<!-- ░░ TRABAJOS / OBRA ░░ -->
+<!-- ░░ NUESTRO TRABAJO ░░ -->
 <section id="trabajos" style="padding:104px 28px;background:#1B2733;border-top:1px solid rgba(255,255,255,.06)">
   <div style="max-width:1240px;margin:0 auto">
     <div class="rv" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:46px">
       <div>
         <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Obra en planta</div>
-        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;max-width:16ch">Trabajos recientes</h2>
+        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;max-width:16ch">ULTIMOS TRABAJOS</h2>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px">
-      <sc-for list="{{ works }}" as="w" hint-placeholder-count="6">
-        <div class="rv" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)">
-          <img src="{{ w.img }}" alt="{{ w.t }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.82);transition:transform .5s,filter .4s" style-hover="transform:scale(1.06);filter:grayscale(0) brightness(.9)">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%);pointer-events:none"></div>
-          <div style="position:absolute;left:18px;top:16px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px">{{ w.tag }}</div>
-          <div style="position:absolute;left:20px;bottom:18px;right:20px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;color:#fff">{{ w.t }}</div>
-        </div>
-      </sc-for>
+
+      <div class="rv" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)">
+        <img src="img/ayb-cableado-potencia-obra-01.jpg" alt="Conexionado de cables de potencia en tablero general" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s" style-hover="transform:scale(1.06)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;left:18px;top:16px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px">Instalación</div>
+        <div style="position:absolute;left:20px;bottom:18px;right:20px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;line-height:1.2;color:#fff">Conexionado de cables de potencia en tablero general</div>
+      </div>
+
+      <div class="rv" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)">
+        <img src="img/ayb-sala-tableros-baja-tension.jpg" alt="Sala de tableros de baja tensión" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s" style-hover="transform:scale(1.06)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;left:18px;top:16px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px">Instalación</div>
+        <div style="position:absolute;left:20px;bottom:18px;right:20px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;line-height:1.2;color:#fff">Sala de tableros de baja tensión</div>
+      </div>
+
+      <div class="rv" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)">
+        <img src="img/ayb-tablero-seccional-02.jpg" alt="Tablero seccional de comando y protección" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s" style-hover="transform:scale(1.06)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;left:18px;top:16px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px">Tableros</div>
+        <div style="position:absolute;left:20px;bottom:18px;right:20px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;line-height:1.2;color:#fff">Tablero seccional de comando y protección</div>
+      </div>
+
+      <div class="rv" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)">
+        <img src="img/ayb-celda-media-tension-13kv.jpg" alt="Celda de media tensión 13,2 kV en SF6" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s" style-hover="transform:scale(1.06)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;left:18px;top:16px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px">Media tensión</div>
+        <div style="position:absolute;left:20px;bottom:18px;right:20px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;line-height:1.2;color:#fff">Celda de media tensión 13,2 kV en SF6</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -372,30 +445,28 @@ document.addEventListener('click', function (e) {
       <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Quiénes somos</div>
       <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;margin-bottom:22px">Dos socios, una forma de trabajar</h2>
       <p style="color:#AEB9C3;font-size:17px;line-height:1.65;margin-bottom:18px;max-width:46ch">Somos un equipo técnico de Paraná especializado en electricidad industrial y automatización. Atendemos a fábricas, plantas y al sector agroindustrial de toda la región.</p>
-      <p style="color:#9FAAB4;font-size:16px;line-height:1.65;max-width:46ch">Trabajamos con equipo propio, herramienta calibrada y bajo norma. Y siempre vas a hablar con uno de los socios, no con un intermediario.</p>
+      <p style="color:#9FAAB4;font-size:16px;line-height:1.65;max-width:46ch">Siempre vas a hablar con uno de los socios, no con un intermediario.</p>
       <div class="rv" style="margin-top:30px;position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)">
-        <img src="{{ plantImg }}" alt="Equipo de AyB en planta" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.85)">
-        <div style="position:absolute;left:16px;bottom:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(19,28,37,.7);padding:5px 11px">Imagen de referencia</div>
+        <img src="img/ayb-cableado-potencia-obra-02.jpg" alt="Cableado de potencia conexionado en obra por AyB Energía Integral" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       </div>
-      <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden">
-        <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
-          <div style="background:#131C25;padding:22px 18px;text-align:center">
-            <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:30px;color:#F47A1F;line-height:1">{{ st.k }}</div>
-            <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8C99A4;margin-top:8px">{{ st.l }}</div>
-          </div>
-        </sc-for>
+      <div class="rv" style="margin-top:32px;background:#131C25;border:1px solid rgba(255,255,255,.08);border-top:3px solid #F47A1F;border-radius:6px;padding:26px 28px">
+        <p style="color:#AEB9C3;font-size:16px;line-height:1.65">Más de 10 y 20 año de experiencia en electricidad industrial y automatización, en instalaciones de la industria y el agro de Entre Ríos.</p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:18px">
-      <sc-for list="{{ socios }}" as="so" hint-placeholder-count="2">
-        <div class="rv" style="display:flex;gap:20px;align-items:center;background:#22303D;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:24px">
-          <div style="flex:none;width:66px;height:66px;border-radius:8px;background:#F47A1F;display:flex;align-items:center;justify-content:center;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:30px;color:#1B2733">{{ so.ini }}</div>
-          <div>
-            <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:20px">{{ so.n }}</div>
-            <div style="color:#9FAAB4;font-size:14px;line-height:1.45;margin-top:5px">{{ so.r }}</div>
-          </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:18px">
+        <div class="rv" style="background:#22303D;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:26px 22px;text-align:center">
+          <img src="img/ayb-luis-brandolin.jpg" alt="Luis Brandolin, socio de AyB Energía Integral" loading="lazy" style="width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 18px;border:2px solid rgba(244,122,31,.55)">
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:20px">Luis Brandolin</div>
+          <div style="color:#9FAAB4;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Socio</div>
         </div>
-      </sc-for>
+        <div class="rv" style="background:#22303D;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:26px 22px;text-align:center">
+          <img src="img/ayb-german-arce.jpg" alt="Germán Arce, socio de AyB Energía Integral" loading="lazy" style="width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 18px;border:2px solid rgba(244,122,31,.55)">
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:20px">Germán Arce</div>
+          <div style="color:#9FAAB4;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Socio</div>
+        </div>
+      </div>
+      <p class="rv" style="text-align:center;color:#AEB9C3;font-size:16px;line-height:1.6;max-width:44ch;margin:0 auto">Trabajamos nosotros, con herramienta propia y bajo norma. No mandamos a un tercero.</p>
       <div class="rv" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden">
         <sc-for list="{{ values }}" as="v" hint-placeholder-count="3">
           <div style="background:#1B2733;padding:22px 18px">
@@ -404,63 +475,18 @@ document.addEventListener('click', function (e) {
           </div>
         </sc-for>
       </div>
-      <div class="rv" style="display:flex;align-items:center;gap:14px;background:#131C25;border:1px dashed rgba(244,122,31,.4);border-radius:8px;padding:20px 24px">
-        <span style="font-size:24px">📍</span>
-        <div>
-          <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase">Zona de cobertura</div>
-          <div style="color:#9FAAB4;font-size:14px;margin-top:3px">Paraná y alrededores · Entre Ríos · Santa Fe</div>
-        </div>
+      <div class="rv" style="background:#131C25;border:1px dashed rgba(244,122,31,.4);border-radius:8px;padding:22px 24px">
+        <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px">Zona de cobertura</div>
+        <div style="color:#AEB9C3;font-size:14.5px;line-height:1.65">Paraná · Crespo · Viale · María Grande · Diamante · Nogoyá · Oro Verde · Toda la provincia de Entre Ríos</div>
+        <div style="color:#8C99A4;font-size:13px;margin-top:10px">Consultanos por trabajos fuera de la zona.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ░░ FAQ / PREGUNTAS FRECUENTES ░░ -->
-<section id="faq" style="padding:104px 28px;background:#1B2733;border-top:1px solid rgba(255,255,255,.06)">
-  <div style="max-width:900px;margin:0 auto">
-    <div style="margin-bottom:46px">
-      <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Preguntas frecuentes</div>
-      <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;max-width:20ch">Lo que nos consultan seguido</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿Qué servicios eléctricos industriales ofrece AyB Energía Integral?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Ofrecemos instalaciones eléctricas industriales, media tensión, tableros eléctricos, automatización y control, mantenimiento industrial y servicios eléctricos para el sector agroindustrial. Cubrimos el ciclo eléctrico completo de tu planta, con equipo propio y trabajos bajo norma.</p>
-      </details>
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿En qué zona trabaja AyB Energía Integral?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Estamos radicados en Paraná y trabajamos en toda la provincia de Entre Ríos. Nos trasladamos hasta tu planta o establecimiento para relevar el trabajo en el lugar.</p>
-      </details>
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿Trabajan con media tensión y tableros eléctricos?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Sí. Realizamos trabajos de media tensión, armado y mantenimiento de tableros eléctricos, y automatización de procesos industriales, siempre bajo la normativa vigente.</p>
-      </details>
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿Hacen instalaciones y mantenimiento para el sector agroindustrial?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Sí. Trabajamos con plantas industriales y con el sector agroindustrial de la región —acopios, silos y establecimientos productivos—, tanto en instalaciones nuevas como en mantenimiento y mejoras.</p>
-      </details>
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿Cuántos años de experiencia tienen?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Contamos con 10 años de trayectoria brindando servicios eléctricos industriales y de automatización para la industria y el agro en Entre Ríos, con equipo propio y respuesta rápida.</p>
-      </details>
-
-      <details style="background:#131C25;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:22px 24px">
-        <summary style="cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff;list-style:none">¿Cómo pido un presupuesto o los contacto?</summary>
-        <p style="color:#9FAAB4;font-size:15px;line-height:1.7;margin-top:14px">Podés escribirnos por WhatsApp al +54 9 3434 05-7889 o por email a aybenergiaintegral@gmail.com. Coordinamos una visita para relevar tu proyecto y te pasamos una propuesta.</p>
-      </details>
-
     </div>
   </div>
 </section>
 
 <!-- ░░ CONTACTO ░░ -->
 <section id="contacto" style="padding:104px 28px;background:#131C25;position:relative;overflow:hidden">
-  <img src="img/AyB_rayo_naranja-blanco.png" alt="" style="position:absolute;right:-40px;top:50%;transform:translateY(-50%) rotate(8deg);height:115%;opacity:.06;pointer-events:none">
+  <img src="img/AyB_rayo_naranja-blanco.png" alt="" loading="lazy" style="position:absolute;right:-40px;top:50%;transform:translateY(-50%) rotate(8deg);height:115%;opacity:.06;pointer-events:none">
   <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px;align-items:center">
     <div class="rv">
       <div style="font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#F47A1F;margin-bottom:14px">// Hablemos</div>
@@ -484,10 +510,6 @@ document.addEventListener('click', function (e) {
         <span style="flex:none;width:44px;height:44px;border-radius:8px;background:rgba(244,122,31,.15);display:flex;align-items:center;justify-content:center;color:#F47A1F;font-size:20px">✉</span>
         <div><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8C99A4">Mail</div><div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;color:#fff">{{ email }}</div></div>
       </a>
-      <div style="display:flex;align-items:center;gap:16px;background:#1B2733;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:20px 22px">
-        <span style="flex:none;width:44px;height:44px;border-radius:8px;background:rgba(244,122,31,.15);display:flex;align-items:center;justify-content:center;color:#F47A1F;font-size:20px">⌚</span>
-        <div><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8C99A4">Horario</div><div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#fff">Lun a Vie · 8 a 18 h</div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -495,7 +517,7 @@ document.addEventListener('click', function (e) {
 <!-- ░░ FOOTER ░░ -->
 <footer style="background:#0F161D;border-top:1px solid rgba(255,255,255,.07);padding:48px 28px 40px">
   <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
-    <img src="img/AyB_EnergiaIntegral_blanco.png" alt="AyB Energía Integral" style="height:54px;width:auto">
+    <img src="img/AyB_EnergiaIntegral_blanco.png" alt="AyB Energía Integral" loading="lazy" style="height:54px;width:auto">
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px">
       <div style="display:flex;gap:10px">
         <a href="{{ instagramUrl }}" target="_blank" rel="noopener" aria-label="Instagram" style="width:42px;height:42px;border:1px solid rgba(255,255,255,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#C8D2DB" style-hover="border-color:#F47A1F;color:#F47A1F">
@@ -503,9 +525,6 @@ document.addEventListener('click', function (e) {
         </a>
         <a href="{{ facebookUrl }}" target="_blank" rel="noopener" aria-label="Facebook" style="width:42px;height:42px;border:1px solid rgba(255,255,255,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#C8D2DB" style-hover="border-color:#F47A1F;color:#F47A1F">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14V9.5c0-.28.22-.5.5-.5z"></path></svg>
-        </a>
-        <a aria-label="LinkedIn" title="Próximamente" style="width:42px;height:42px;border:1px solid rgba(255,255,255,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#C8D2DB;cursor:default" style-hover="border-color:#F47A1F;color:#F47A1F">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2 2 0 11-.02 4 2 2 0 01.02-4zM3 9h4v12H3V9zm6 0h3.8v1.65h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.6 22 10.5 22 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9z"></path></svg>
         </a>
       </div>
       <div style="color:#7A8893;font-size:13px;line-height:1.6;text-align:right">
@@ -545,13 +564,12 @@ document.addEventListener('click', function (e) {
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+54 9 3434 05-7889&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F47A1F&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F47A1F&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { mobileOpen: false, waOpen: false };
+  state = { mobileOpen: false, waOpen: false, open: [false, false, false, false, false, false] };
 
   componentDidMount() {
     document.body.classList.add('js');
-    // burger / desktop nav responsive switch
     const apply = () => {
       const small = window.innerWidth < 920;
       document.querySelectorAll('[data-desktop-nav]').forEach(n => n.style.display = small ? 'none' : 'flex');
@@ -562,7 +580,6 @@ class Component extends DCLogic {
     apply();
     this._apply = apply;
     window.addEventListener('resize', apply);
-    // reveal on scroll
     this._io = new IntersectionObserver((es) => {
       es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); this._io.unobserve(e.target); } });
     }, { threshold: 0.12 });
@@ -580,9 +597,14 @@ class Component extends DCLogic {
   renderVals() {
     const msg = encodeURIComponent('Hola AyB, quería pedir un presupuesto para mi planta.');
     const wa = (num) => `https://wa.me/${num.replace(/\D/g, '')}?text=${msg}`;
-    const res = (id, url) => (typeof window !== 'undefined' && window.__resources && window.__resources[id]) || url;
     const waLuis = wa('5493434057889');
     const waGerman = wa('5493434559011');
+    const o = this.state.open;
+    const tog = (i) => () => this.setState(s => {
+      const n = s.open.slice();
+      n[i] = !n[i];
+      return { open: n };
+    });
     return {
       mobileOpen: this.state.mobileOpen,
       toggleMenu: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
@@ -591,9 +613,10 @@ class Component extends DCLogic {
       waClosed: !this.state.waOpen,
       toggleWa: () => this.setState(s => ({ waOpen: !s.waOpen })),
       closeWa: () => this.setState({ waOpen: false }),
+      o1: o[0], o2: o[1], o3: o[2], o4: o[3], o5: o[4], o6: o[5],
+      c1: !o[0], c2: !o[1], c3: !o[2], c4: !o[3], c5: !o[4], c6: !o[5],
+      t1: tog(0), t2: tog(1), t3: tog(2), t4: tog(3), t5: tog(4), t6: tog(5),
       waUrl: waLuis,
-      waLuis: waLuis,
-      waGerman: waGerman,
       instagramUrl: 'https://www.instagram.com/aybenergiaintegral/',
       facebookUrl: 'https://www.facebook.com/profile.php?id=61591211913274',
       email: 'aybenergiaintegral' + '@' + 'gmail.com',
@@ -610,47 +633,17 @@ class Component extends DCLogic {
         { t: 'Nosotros', href: '#nosotros' },
         { t: 'Contacto', href: '#contacto' },
       ],
-      services: [
-        { n: '01', t: 'Instalaciones industriales', d: 'Tendido, montaje y puesta a punto de instalaciones de baja tensión en planta, bajo norma AEA.' },
-        { n: '02', t: 'Media tensión', d: 'Subestaciones, celdas y maniobras en MT con personal habilitado y protocolos de seguridad.' },
-        { n: '03', t: 'Automatización y control', d: 'PLC, tableros de comando, sensórica e integración de líneas y procesos productivos.' },
-        { n: '04', t: 'Tableros eléctricos', d: 'Diseño, armado y verificación de tableros de potencia y comando a medida.' },
-        { n: '05', t: 'Mantenimiento industrial', d: 'Preventivo y correctivo programado para minimizar las paradas no planificadas.' },
-        { n: '06', t: 'Sector agroindustrial', d: 'Energía para plantas de acopio, secado, riego y procesos del agro.' },
-      ],
       steps: [
         { n: '01', t: 'Relevamiento', d: 'Vamos a tu planta, medimos y entendemos el proceso antes de proponer nada.' },
         { n: '02', t: 'Propuesta', d: 'Te pasamos una propuesta técnica clara: alcance, plazos y costos sin sorpresas.' },
         { n: '03', t: 'Ejecución', d: 'Equipo propio en obra, trabajando bajo norma y con la planta operativa.' },
         { n: '04', t: 'Puesta en marcha', d: 'Probamos, dejamos funcionando y te entregamos la documentación as-built.' },
       ],
-      stats: [
-        { k: '+15', l: 'años en planta' },
-        { k: '+120', l: 'obras entregadas' },
-        { k: '24-48h', l: 'tiempo de respuesta' },
-        { k: '100%', l: 'bajo norma AEA' },
-      ],
       values: [
         { t: 'Técnica', d: 'Resolvemos problemas eléctricos complejos con criterio de ingeniería, no a ojo.' },
         { t: 'Confiable', d: 'Cumplimos plazos y dejamos todo documentado. Si decimos que está, está.' },
         { t: 'Cercana', d: 'Hablás siempre con los socios. Sin call centers ni vueltas.' },
       ],
-      socios: [
-        { ini: 'L', n: 'Luis Brandolin', r: 'Socio · Electricidad industrial y media tensión' },
-        { ini: 'G', n: 'Germán Arce', r: 'Socio · Automatización, tableros y obra' },
-      ],
-      // ⚠ IMÁGENES DE STOCK (Unsplash, licencia libre) — placeholders de prueba.
-      // Reemplazar por fotos reales de obra cuando estén disponibles.
-      // res(): usa el recurso incrustado en el archivo empaquetado, o la URL real en el preview.
-      works: [
-        { img: res('w1', 'https://images.unsplash.com/photo-1635335874521-7987db781153?auto=format&fit=crop&w=1100&q=70'), t: 'Tableros eléctricos', tag: 'Tablero de comando' },
-        { img: res('w2', 'https://images.unsplash.com/photo-1566417108845-5ba9c2f9ea1b?auto=format&fit=crop&w=1100&q=70'), t: 'Media tensión', tag: 'Maniobra MT' },
-        { img: res('w3', 'https://images.unsplash.com/photo-1558054665-fbe00cd7d920?auto=format&fit=crop&w=1100&q=70'), t: 'Automatización y control', tag: 'Línea de proceso' },
-        { img: res('w4', 'https://images.unsplash.com/photo-1566417110090-6b15a06ec800?auto=format&fit=crop&w=1100&q=70'), t: 'Instalaciones industriales', tag: 'Montaje en planta' },
-        { img: res('w5', 'https://images.unsplash.com/photo-1554021279-722f30a555be?auto=format&fit=crop&w=1100&q=70'), t: 'Mantenimiento industrial', tag: 'Servicio programado' },
-        { img: res('w6', 'https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&fit=crop&w=1100&q=70'), t: 'Sector agroindustrial', tag: 'Obra en campo' },
-      ],
-      plantImg: res('plant', 'https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&fit=crop&w=1200&q=72'),
     };
   }
 }
