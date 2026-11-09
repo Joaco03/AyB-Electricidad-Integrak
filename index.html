@@ -3,14 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28043557855329111');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28043557855329111&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel - Eventos de conversión (WhatsApp / Email / Teléfono) -->
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a') : null;
+  if (!a || !a.href || typeof fbq !== 'function') return;
+  var h = a.href.toLowerCase();
+  if (h.indexOf('wa.me') > -1 || h.indexOf('whatsapp.com') > -1 || h.indexOf('api.whatsapp') > -1) {
+    fbq('track', 'Lead', { content_name: 'WhatsApp' });
+  } else if (h.indexOf('mailto:') === 0 || h.indexOf('mail.google.com') > -1) {
+    fbq('track', 'Lead', { content_name: 'Pedir presupuesto (email)' });
+  } else if (h.indexOf('tel:') === 0) {
+    fbq('track', 'Lead', { content_name: 'Llamada telefónica' });
+  }
+}, true);
+</script>
+<!-- End Meta Pixel Eventos -->
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <title>AyB Energía Integral | Electricidad industrial y automatización en Paraná, Entre Ríos</title>
-<meta name="description" content="Servicios eléctricos industriales y automatización para industria y agro en Paraná, Entre Ríos. Instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos. Pedí tu presupuesto.">
-<meta name="keywords" content="electricista industrial Paraná, instalaciones eléctricas industriales Entre Ríos, media tensión Entre Ríos, tableros eléctricos para silos, automatización galpones avícolas, PLC industrial, variadores de frecuencia, mantenimiento eléctrico agroindustria, AyB Energía Integral">
+<meta name="description" content="Paneles solares, servicios eléctricos industriales y automatización para industria y agro en Paraná, Entre Ríos. Instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos. Pedí tu presupuesto.">
+<meta name="keywords" content="paneles solares Paraná, paneles solares para industria y agro Entre Ríos, electricista industrial Paraná, instalaciones eléctricas industriales Entre Ríos, media tensión Entre Ríos, tableros eléctricos para silos, automatización galpones avícolas, PLC industrial, variadores de frecuencia, mantenimiento eléctrico agroindustria, AyB Energía Integral">
 <meta name="author" content="AyB Energía Integral">
 <meta name="robots" content="index, follow">
 <meta name="geo.region" content="AR-E">
@@ -27,7 +62,7 @@
 <meta name="twitter:image" content="img/AyB_EnergiaIntegral_blanco.png">
 <link rel="icon" href="img/AyB_rayo_naranja-blanco.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ElectricalContractor","name":"AyB Energía Integral","description":"Servicios eléctricos industriales y automatización para la industria y el agro: instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos, mantenimiento y retrofit.","email":"aybenergiaintegral@gmail.com","areaServed":[{"@type":"City","name":"Paraná"},{"@type":"City","name":"Crespo"},{"@type":"City","name":"Viale"},{"@type":"City","name":"María Grande"},{"@type":"City","name":"Diamante"},{"@type":"City","name":"Nogoyá"},{"@type":"City","name":"Oro Verde"},{"@type":"State","name":"Entre Ríos"}],"address":{"@type":"PostalAddress","addressLocality":"Paraná","addressRegion":"Entre Ríos","addressCountry":"AR"},"sameAs":["https://www.instagram.com/aybenergiaintegral/","https://www.facebook.com/profile.php?id=61591211913274"],"knowsAbout":["Instalaciones eléctricas industriales","Media y alta tensión","Automatización y control","Tableros eléctricos","Tableros eléctricos para silos","Automatización de galpones avícolas","PLC","Variadores de frecuencia","Mantenimiento industrial","Retrofit de máquinas"]}
+{"@context":"https://schema.org","@type":"ElectricalContractor","name":"AyB Energía Integral","description":"Servicios eléctricos industriales y automatización para la industria y el agro: instalaciones, media y alta tensión, tableros eléctricos, automatización de galpones avícolas y plantas de silos, mantenimiento y retrofit.","email":"aybenergiaintegral@gmail.com","areaServed":[{"@type":"City","name":"Paraná"},{"@type":"City","name":"Crespo"},{"@type":"City","name":"Viale"},{"@type":"City","name":"María Grande"},{"@type":"City","name":"Diamante"},{"@type":"City","name":"Nogoyá"},{"@type":"City","name":"Oro Verde"},{"@type":"State","name":"Entre Ríos"}],"address":{"@type":"PostalAddress","addressLocality":"Paraná","addressRegion":"Entre Ríos","addressCountry":"AR"},"sameAs":["https://www.instagram.com/aybenergiaintegral/","https://www.facebook.com/profile.php?id=61591211913274"],"knowsAbout":["Paneles solares para industria y agro","Energía solar fotovoltaica","Instalaciones eléctricas industriales","Media y alta tensión","Automatización y control","Tableros eléctricos","Tableros eléctricos para silos","Automatización de galpones avícolas","PLC","Variadores de frecuencia","Mantenimiento industrial","Retrofit de máquinas"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -45,6 +80,23 @@
   @keyframes scan{0%{background-position:0 0}100%{background-position:0 -22px}}
   body.js .rv{opacity:0;transform:translateY(30px)}
   body.js .rv.show{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  @keyframes solglow{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+  .sol-feat{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;background:linear-gradient(115deg,#131C25 0%,#17222D 55%,#1F2C39 100%);border:1px solid rgba(244,122,31,.5);overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%);margin-bottom:18px;transition:border-color .25s}
+  .sol-feat:hover{border-color:#F47A1F}
+  .sol-feat::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:#F47A1F;z-index:2}
+  .sol-txt{position:relative;z-index:1;padding:50px 10px 50px 46px}
+  .sol-img{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:360px;padding:30px 30px 30px 0}
+  .sol-img::before{content:"";position:absolute;left:8%;top:6%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(244,122,31,.32) 0%,rgba(244,122,31,.10) 40%,transparent 68%);animation:solglow 6s ease-in-out infinite;pointer-events:none}
+  .sol-img img{position:relative;width:100%;max-width:620px;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+  .sol-stat{position:absolute;right:26px;bottom:30px;background:rgba(19,28,37,.92);border:1px solid rgba(255,255,255,.14);border-top:3px solid #F47A1F;border-radius:6px;padding:12px 18px 14px}
+  .sol-li{display:flex;gap:11px;color:#AEB9C3;font-size:15px;line-height:1.5}
+  @media (max-width:920px){
+    .sol-feat{grid-template-columns:1fr;gap:0}
+    .sol-txt{padding:8px 24px 38px}
+    .sol-img{order:-1;min-height:0;padding:34px 14px 6px}
+    .sol-stat{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){.sol-img::before{animation:none}}
 </style>
 </helmet>
 
@@ -64,15 +116,17 @@
       <img src="img/AyB_EnergiaIntegral_blanco.png" alt="AyB Energía Integral" style="height:46px;width:auto;display:block">
     </a>
     <nav style="display:flex;align-items:center;gap:4px" data-desktop-nav="">
+      <a href="paneles-solares/" style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#FF9A52;text-decoration:none;padding:10px 14px;border-radius:4px;display:flex;align-items:center;gap:8px;white-space:nowrap" style-hover="color:#fff;background:rgba(244,122,31,.12)"><span style="width:7px;height:7px;border-radius:50%;background:#F47A1F;box-shadow:0 0 8px #F47A1F"></span>Paneles solares</a>
       <sc-for list="{{ navLinks }}" as="lk" hint-placeholder-count="4">
-        <a href="{{ lk.href }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#C8D2DB;text-decoration:none;padding:10px 14px;border-radius:4px" style-hover="color:#fff;background:rgba(255,255,255,.06)">{{ lk.t }}</a>
+        <a href="{{ lk.href }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#C8D2DB;text-decoration:none;padding:10px 14px;border-radius:4px;white-space:nowrap" style-hover="color:#fff;background:rgba(255,255,255,.06)">{{ lk.t }}</a>
       </sc-for>
-      <a href="{{ mailUrl }}" target="_blank" rel="noopener" style="margin-left:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 20px;border-radius:4px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(244,122,31,.32)" style-hover="background:#FF9A52">Pedí tu presupuesto</a>
+      <a href="{{ mailUrl }}" target="_blank" rel="noopener" style="margin-left:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:12px 20px;border-radius:4px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(244,122,31,.32);white-space:nowrap" style-hover="background:#FF9A52">Pedí tu presupuesto</a>
     </nav>
     <button onClick="{{ toggleMenu }}" aria-label="Menú" style="display:none;background:none;border:1px solid rgba(255,255,255,.18);border-radius:6px;width:46px;height:42px;cursor:pointer;color:#fff;font-size:20px;align-items:center;justify-content:center" data-burger="">☰</button>
   </div>
   <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
     <div style="border-top:1px solid rgba(255,255,255,.08);padding:14px 28px 22px;display:flex;flex-direction:column;gap:6px;background:#131C25">
+      <a href="paneles-solares/" onClick="{{ closeMenu }}" style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:#FF9A52;text-decoration:none;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:#F47A1F;box-shadow:0 0 8px #F47A1F"></span>Paneles solares</a>
       <sc-for list="{{ navLinks }}" as="lk" hint-placeholder-count="4">
         <a href="{{ lk.href }}" onClick="{{ closeMenu }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:#C8D2DB;text-decoration:none;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)">{{ lk.t }}</a>
       </sc-for>
@@ -92,11 +146,16 @@
         <span style="font-family:'Chakra Petch',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#FF9A52">Paraná · Entre Ríos · Industria &amp; Agro</span>
       </div>
       <h1 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,88px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase">Energía que<br><span style="color:#F47A1F">no para</span> tu planta.</h1>
-      <p style="margin-top:26px;max-width:560px;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#AEB9C3">Servicios eléctricos industriales y automatización para la industria y el agro. Instalaciones, media tensión, tableros y mantenimiento. Equipo propio, bajo norma y con respuesta rápida.</p>
+      <p style="margin-top:26px;max-width:560px;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#AEB9C3">Servicios eléctricos industriales y automatización para la industria y el agro. Paneles solares, instalaciones, media tensión, tableros y mantenimiento. Equipo propio, bajo norma y con respuesta rápida.</p>
       <div style="margin-top:38px;display:flex;flex-wrap:wrap;gap:14px">
         <a href="{{ mailUrl }}" target="_blank" rel="noopener" style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:17px 30px;border-radius:6px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(244,122,31,.34)" style-hover="background:#FF9A52;transform:translateY(-2px)">Pedí tu presupuesto →</a>
         <a href="#servicios" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.22);text-decoration:none;padding:17px 30px;border-radius:6px" style-hover="border-color:#F47A1F;color:#FF9A52">Ver servicios</a>
       </div>
+      <a href="paneles-solares/" style="margin-top:30px;display:inline-flex;align-items:center;gap:14px;max-width:560px;background:rgba(19,28,37,.75);border:1px solid rgba(244,122,31,.45);border-left:3px solid #F47A1F;border-radius:6px;padding:13px 18px;text-decoration:none;color:#fff" style-hover="border-color:#F47A1F;background:rgba(19,28,37,.95)">
+        <span style="flex:none;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:4px 8px;border-radius:3px">Nuevo</span>
+        <span style="font-size:15px;line-height:1.45;color:#C8D2DB"><strong style="color:#fff;font-weight:600">Paneles solares para tu planta.</strong> Reducí entre un 40% y un 70% la factura de luz.</span>
+        <span style="flex:none;font-family:'Chakra Petch',sans-serif;font-weight:700;color:#F47A1F;font-size:18px">→</span>
+      </a>
     </div>
     <div style="display:flex;justify-content:center;align-items:center;position:relative" data-hero-bolt="">
       <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(244,122,31,.28),transparent 65%);filter:blur(8px)"></div>
@@ -108,8 +167,8 @@
 <!-- ░░ TICKER ░░ -->
 <div style="background:#F47A1F;color:#1B2733;overflow:hidden;white-space:nowrap;border-top:2px solid #131C25;border-bottom:2px solid #131C25">
   <div style="display:inline-block;padding:13px 0;animation:tick 26s linear infinite;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase">
-    <span>INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span>
-    <span>INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span>
+    <span>PANELES SOLARES &nbsp;/&nbsp; INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span>
+    <span>PANELES SOLARES &nbsp;/&nbsp; INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -122,6 +181,32 @@
         <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase;max-width:14ch">Servicios para industria y agro</h2>
       </div>
       <p style="max-width:380px;color:#9FAAB4;font-size:16px;line-height:1.6">Cubrimos el ciclo eléctrico completo de tu planta, desde la media tensión hasta el control de proceso. Tocá cada servicio para ver el detalle técnico.</p>
+    </div>
+
+
+    <!-- ░░ SERVICIO DESTACADO: PANELES SOLARES ░░ -->
+    <div class="rv sol-feat">
+      <div class="sol-txt">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1B2733;background:#F47A1F;padding:5px 10px;border-radius:3px;margin-bottom:22px">Servicio destacado</div>
+        <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.02;text-transform:uppercase;margin-bottom:16px">Paneles solares para <span style="color:#F47A1F">industria y agro</span></h3>
+        <p style="color:#AEB9C3;font-size:16.5px;line-height:1.6;max-width:46ch;margin-bottom:22px">Generá tu propia energía en los techos de tus galpones o en tu terreno, y reducí entre un 40% y un 70% la factura de luz de tu planta.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:30px">
+          <li class="sol-li"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Analizamos tus facturas y tu consumo real</li>
+          <li class="sol-li"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Proyectamos tu ahorro y en cuánto tiempo recuperás la inversión</li>
+          <li class="sol-li"><span style="flex:none;color:#F47A1F;font-weight:700">/</span>Instalación y conexión al tablero con equipo propio</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="paneles-solares/" style="display:inline-flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:#1B2733;background:#F47A1F;text-decoration:none;padding:15px 24px;border-radius:6px;box-shadow:0 10px 26px rgba(244,122,31,.3)" style-hover="background:#FF9A52">Conocé la propuesta →</a>
+          <a href="{{ waSolar }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.22);text-decoration:none;padding:15px 22px;border-radius:6px" style-hover="border-color:#25D366;color:#fff">Presupuesto por WhatsApp</a>
+        </div>
+      </div>
+      <div class="sol-img">
+        <img src="img/ayb-paneles-solares-3d.webp" alt="Ilustración 3D de una mesa de paneles solares sobre terreno, conectada a un tablero" width="1200" height="780" loading="lazy">
+        <div class="sol-stat">
+          <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9FAAB4;margin-bottom:4px">Ahorro en la factura</div>
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:34px;line-height:1">40–70<span style="font-size:18px;color:#F47A1F;margin-left:2px">%</span></div>
+        </div>
+      </div>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start">
@@ -529,6 +614,7 @@
       </div>
       <div style="color:#7A8893;font-size:13px;line-height:1.6;text-align:right">
         <div style="font-family:'Chakra Petch',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#9FAAB4">Servicios eléctricos industriales · Paraná, Entre Ríos</div>
+        <div style="margin-top:6px"><a href="paneles-solares/" style="color:#FF9A52;text-decoration:none" style-hover="color:#F47A1F">Paneles solares para industria y agro →</a></div>
         <div style="margin-top:6px">© {{ year }} AyB Energía Integral — Todos los derechos reservados</div>
       </div>
     </div>
@@ -572,8 +658,9 @@ class Component extends DCLogic {
     document.body.classList.add('js');
     const apply = () => {
       const small = window.innerWidth < 920;
-      document.querySelectorAll('[data-desktop-nav]').forEach(n => n.style.display = small ? 'none' : 'flex');
-      document.querySelectorAll('[data-burger]').forEach(b => b.style.display = small ? 'flex' : 'none');
+      const navSmall = window.innerWidth < 1140;
+      document.querySelectorAll('[data-desktop-nav]').forEach(n => n.style.display = navSmall ? 'none' : 'flex');
+      document.querySelectorAll('[data-burger]').forEach(b => b.style.display = navSmall ? 'flex' : 'none');
       document.querySelectorAll('[data-hero-grid]').forEach(g => g.style.gridTemplateColumns = small ? '1fr' : '1.35fr .65fr');
       document.querySelectorAll('[data-hero-bolt]').forEach(b => b.style.display = small ? 'none' : 'flex');
     };
@@ -617,6 +704,7 @@ class Component extends DCLogic {
       c1: !o[0], c2: !o[1], c3: !o[2], c4: !o[3], c5: !o[4], c6: !o[5],
       t1: tog(0), t2: tog(1), t3: tog(2), t4: tog(3), t5: tog(4), t6: tog(5),
       waUrl: waLuis,
+      waSolar: 'https://wa.me/5493434057889?text=' + encodeURIComponent('Hola AyB, quiero pedir un presupuesto de paneles solares para mi planta.'),
       instagramUrl: 'https://www.instagram.com/aybenergiaintegral/',
       facebookUrl: 'https://www.facebook.com/profile.php?id=61591211913274',
       email: 'aybenergiaintegral' + '@' + 'gmail.com',
