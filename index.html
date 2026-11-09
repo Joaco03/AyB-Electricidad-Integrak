@@ -111,240 +111,323 @@ document.addEventListener('click', function (e) {
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+  /* ═══ Sistema "Unifilar" — AyB Energía Integral ═══ */
   :root{
-    --graf:#1B2733; --graf-2:#131C25; --graf-3:#22303D; --negro:#0F161D;
+    --negro:#0B1016; --graf:#1B2733; --graf-2:#141E28; --graf-3:#22303D;
     --naranja:#F47A1F; --naranja-2:#FF9A52;
-    --texto-2:#AEB9C3; --texto-3:#9FAAB4; --nav:#C8D2DB;
-    --linea:rgba(255,255,255,.08); --linea-2:rgba(255,255,255,.14);
+    --claro:#EDEFF1; --claro-2:#E2E6EA;
+    --tinta:#1B2733; --tinta-2:#46525E;
+    --texto-2:#AEB9C3; --texto-3:#9FAAB4; --nav:#C8D2DB; --acero:#6B7683;
+    --linea:rgba(255,255,255,.09); --linea-2:rgba(255,255,255,.16); --linea-t:rgba(27,39,51,.16);
     --wa:#25D366;
     --display:'Chakra Petch',sans-serif; --body:'Inter',sans-serif;
-    --corte:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%);
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --corte:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:84px}
-  body{font-family:var(--body);background:var(--graf);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--body);background:var(--negro);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55;font-size:16px}
   ::selection{background:var(--naranja);color:var(--graf)}
   a{color:var(--naranja-2)}
-  a:hover{color:var(--naranja)}
   img,svg{display:block;max-width:100%}
   button{font:inherit;color:inherit}
   :focus-visible{outline:2px solid var(--naranja-2);outline-offset:3px}
+  .claro :focus-visible,.naranja :focus-visible{outline-color:var(--graf)}
   .saltar{position:absolute;left:12px;top:-60px;z-index:100;background:var(--naranja);color:var(--graf);font-weight:700;padding:10px 16px;border-radius:4px;text-decoration:none}
-  .saltar:focus{top:12px;color:var(--graf)}
+  .saltar:focus{top:12px}
 
-  .wrap{max-width:1240px;margin:0 auto}
-  .sec{padding:104px 28px;position:relative}
-  .sec--a{background:var(--graf)}
-  .sec--b{background:var(--graf-2)}
-  .sec--borde{border-top:1px solid rgba(255,255,255,.06)}
-  .eyebrow{font-family:var(--display);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--naranja);margin-bottom:14px}
-  .h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;text-transform:uppercase}
-  .lead{color:var(--texto-3);font-size:16px;line-height:1.6;max-width:400px}
-  .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:46px}
-  .sec-head--centro{display:block;text-align:center;margin-bottom:56px}
-  .sec-head--centro .h2{max-width:30ch;margin:0 auto}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .sec{padding:128px 0;position:relative}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;padding:17px 28px;border-radius:6px;border:0;cursor:pointer;transition:background .2s,transform .2s,border-color .2s,color .2s}
-  .btn svg{flex:none}
-  .btn--naranja{color:var(--graf);background:var(--naranja);box-shadow:0 12px 30px rgba(244,122,31,.34)}
-  .btn--naranja:hover{background:var(--naranja-2);color:var(--graf);transform:translateY(-2px)}
-  .btn--borde{color:#fff;border:1px solid rgba(255,255,255,.22);background:transparent}
-  .btn--borde:hover{border-color:var(--naranja);color:var(--naranja-2)}
-  .btn--chico{font-size:14px;padding:15px 22px}
+  /* Tipografía */
+  .d1{font-family:var(--display);font-weight:700;font-size:clamp(50px,8.4vw,124px);line-height:.92;letter-spacing:-.025em}
+  .d2{font-family:var(--display);font-weight:700;font-size:clamp(38px,5.2vw,76px);line-height:.96;letter-spacing:-.02em}
+  .d3{font-family:var(--display);font-weight:600;font-size:clamp(24px,2.3vw,32px);line-height:1.1;letter-spacing:-.01em}
+  .lead{font-size:clamp(17px,1.35vw,19px);line-height:1.6;color:var(--texto-2);max-width:52ch}
+  .claro .lead{color:var(--tinta-2)}
 
-  /* ░░ NAV ░░ */
-  .nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(19,28,37,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
-  .nav__in{max-width:1240px;margin:0 auto;padding:0 28px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .nav__logo img{height:46px;width:auto}
-  .nav__links{display:flex;align-items:center;gap:4px}
-  .nav__link{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--nav);text-decoration:none;padding:10px 14px;border-radius:4px;white-space:nowrap}
-  .nav__link:hover{color:#fff;background:rgba(255,255,255,.06)}
-  .nav__link--sol{color:var(--naranja-2);font-weight:700;display:inline-flex;align-items:center;gap:8px}
-  .nav__link--sol:hover{color:#fff;background:rgba(244,122,31,.12)}
-  .punto{width:7px;height:7px;border-radius:50%;background:var(--naranja);box-shadow:0 0 8px var(--naranja);flex:none}
-  .nav__cta{margin-left:10px;display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--graf);background:var(--naranja);text-decoration:none;padding:12px 18px;border-radius:4px;box-shadow:0 6px 18px rgba(244,122,31,.32);white-space:nowrap}
-  .nav__cta:hover{background:var(--naranja-2);color:var(--graf)}
-  .burger{display:none;background:none;border:1px solid rgba(255,255,255,.18);border-radius:6px;width:46px;height:42px;cursor:pointer;color:#fff;align-items:center;justify-content:center}
-  .menu{display:none;border-top:1px solid var(--linea);padding:12px 28px 22px;background:var(--graf-2);flex-direction:column}
+  /* Rótulo tipo placa grabada */
+  .placa{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1;padding:8px 12px 7px;border:1px solid var(--linea-2);background:rgba(11,16,22,.6);color:var(--nav)}
+  .placa::before{content:"";width:6px;height:6px;background:var(--naranja);flex:none}
+  .placa--g{background:var(--graf);border-color:var(--graf);color:#fff}
+  .placa--t{background:transparent;border-color:rgba(27,39,51,.35);color:var(--tinta)}
+  .placa--t::before{background:var(--graf)}
+
+  /* Botones */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:18px 28px;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease);clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+  .btn svg{flex:none;transition:transform .2s var(--ease)}
+  .btn:hover svg{transform:translateX(2px)}
+  .btn--naranja{background:var(--naranja);color:var(--graf)}
+  .btn--naranja:hover{background:var(--naranja-2);color:var(--graf)}
+  .btn--linea{border-color:rgba(255,255,255,.3);color:#fff;clip-path:none}
+  .btn--linea:hover{border-color:var(--naranja);color:var(--naranja-2)}
+  .btn--g{background:var(--graf);color:#fff}
+  .btn--g:hover{background:var(--negro);color:#fff}
+  .btn--linea-g{border-color:rgba(27,39,51,.5);color:var(--graf);clip-path:none}
+  .btn--linea-g:hover{border-color:var(--graf);background:rgba(27,39,51,.08);color:var(--graf)}
+
+  /* ░░ HEADER ░░ */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+  .nav.solido{background:rgba(11,16,22,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom-color:var(--linea)}
+  .nav__in{max-width:1280px;margin:0 auto;padding:0 40px;height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav__logo img{height:44px;width:auto}
+  .nav__links{display:flex;align-items:center;gap:2px}
+  .nav__link{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--nav);text-decoration:none;padding:10px 13px;white-space:nowrap;position:relative}
+  .nav__link::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--naranja);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+  .nav__link:hover{color:#fff}
+  .nav__link:hover::after{transform:scaleX(1)}
+  .nav__link--sol{color:var(--naranja-2);display:inline-flex;align-items:center;gap:8px}
+  .punto{width:7px;height:7px;border-radius:50%;background:var(--naranja);box-shadow:0 0 10px var(--naranja);flex:none}
+  .nav__cta{margin-left:12px;padding:13px 18px;font-size:13px}
+  .burger{display:none;background:none;border:1px solid var(--linea-2);width:46px;height:44px;cursor:pointer;color:#fff;align-items:center;justify-content:center}
+  .menu{display:none;border-top:1px solid var(--linea);padding:10px 40px 24px;background:var(--negro);flex-direction:column}
   .menu.abierto{display:flex}
-  .menu a{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--nav);text-decoration:none;padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.06)}
-  .menu a.nav__link--sol{color:var(--naranja-2);font-weight:700;display:flex;align-items:center;gap:10px}
-  .menu .btn{margin-top:14px;border-bottom:0;color:var(--graf)}
+  .menu a{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--nav);text-decoration:none;padding:14px 2px;border-bottom:1px solid var(--linea)}
+  .menu a.nav__link--sol{color:var(--naranja-2);display:flex;align-items:center;gap:10px}
+  .menu .btn{margin-top:16px;border-bottom:0;color:var(--graf)}
 
   /* ░░ HERO ░░ */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:122px 28px 72px;background:radial-gradient(120% 100% at 80% 0%,#22303D 0%,#1B2733 52%,#131C25 100%);overflow:hidden}
-  .hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 70% 10%,#000 30%,transparent 80%);mask-image:radial-gradient(120% 90% at 70% 10%,#000 30%,transparent 80%)}
-  .hero__linea{position:absolute;top:0;right:6%;bottom:0;width:1px;background:repeating-linear-gradient(#F47A1F 0 8px,transparent 8px 22px);opacity:.45}
-  .hero__in{position:relative;max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(244,122,31,.4);border-radius:100px;padding:7px 16px;margin-bottom:30px}
-  .pill span:last-child{font-family:var(--display);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--naranja-2)}
-  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6.4vw,88px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase}
-  .hero h1 em{font-style:normal;color:var(--naranja)}
-  .hero h1 .l{display:block}
-  .hero__p{margin-top:26px;max-width:560px;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:var(--texto-2)}
-  .hero__ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px}
-  .aviso{margin-top:30px;display:inline-flex;align-items:center;gap:14px;max-width:560px;background:rgba(19,28,37,.75);border:1px solid rgba(244,122,31,.45);border-left:3px solid var(--naranja);border-radius:6px;padding:13px 18px;text-decoration:none;color:var(--nav);transition:border-color .2s,background .2s}
-  .aviso:hover{border-color:var(--naranja);background:rgba(19,28,37,.95);color:var(--nav)}
-  .aviso__tag{flex:none;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--graf);background:var(--naranja);padding:4px 8px;border-radius:3px}
+  .hero{position:relative;padding:150px 0 0;background:var(--negro);overflow:hidden}
+  .hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 60%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 60%,transparent 100%);pointer-events:none}
+  .hero__glow{position:absolute;right:-12%;top:-20%;width:70vw;height:70vw;max-width:980px;max-height:980px;background:radial-gradient(circle,rgba(244,122,31,.16),transparent 62%);pointer-events:none}
+  .hero .wrap{position:relative}
+  .hero__h1{margin:28px 0 40px;max-width:16ch}
+  .hero__h1 .l{display:block}
+  .hero__fila{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px 64px;align-items:end}
+  .hero__ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+  .aviso{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;border:1px solid rgba(244,122,31,.45);background:linear-gradient(90deg,rgba(244,122,31,.14),rgba(244,122,31,.03));padding:18px 20px;text-decoration:none;color:var(--nav);transition:border-color .2s,background .2s;justify-self:end;max-width:460px}
+  .aviso:hover{border-color:var(--naranja);background:linear-gradient(90deg,rgba(244,122,31,.22),rgba(244,122,31,.06));color:var(--nav)}
+  .aviso__tag{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--graf);background:var(--naranja);padding:5px 8px}
   .aviso__txt{font-size:15px;line-height:1.45}
-  .aviso__txt strong{color:#fff;font-weight:600}
-  .aviso svg{flex:none;color:var(--naranja)}
-  .hero__rayo{display:flex;justify-content:center;align-items:center;position:relative}
-  .hero__rayo::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(244,122,31,.28),transparent 65%);filter:blur(8px)}
-  .hero__rayo img{position:relative;height:min(64vh,520px);width:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+  .aviso__txt strong{display:block;color:#fff;font-family:var(--display);font-weight:600;font-size:17px;margin-bottom:2px}
+  .aviso svg{color:var(--naranja);transition:transform .2s var(--ease)}
+  .aviso:hover svg{transform:translateX(3px)}
 
-  /* Entrada del hero: una sola secuencia al cargar */
-  @keyframes sube{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-  @keyframes rayo{from{opacity:0;transform:translateY(-30px) rotate(-4deg)}to{opacity:1;transform:none}}
-  .js .hero .pill{animation:sube .6s cubic-bezier(.2,.7,.2,1) both}
-  .js .hero h1 .l{animation:sube .7s cubic-bezier(.2,.7,.2,1) both}
-  .js .hero h1 .l:nth-child(2){animation-delay:.1s}
-  .js .hero h1 .l:nth-child(3){animation-delay:.2s}
-  .js .hero__p{animation:sube .7s .3s cubic-bezier(.2,.7,.2,1) both}
-  .js .hero__ctas{animation:sube .7s .4s cubic-bezier(.2,.7,.2,1) both}
-  .js .aviso{animation:sube .7s .5s cubic-bezier(.2,.7,.2,1) both}
-  .js .hero__rayo img{animation:rayo .9s .25s cubic-bezier(.2,.7,.2,1) both}
+  /* Diagrama unifilar */
+  .unifilar{margin-top:56px;padding:26px 0 30px;border-top:1px solid var(--linea)}
+  .unifilar__cab{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acero)}
+  .unifilar__cab span:last-child{color:var(--texto-3)}
+  .uni--m{display:none}
+  .uni .cab{fill:none;stroke:rgba(255,255,255,.42);stroke-width:2}
+  .uni .bus{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:square}
+  .uni .sim{fill:var(--negro);stroke:#fff;stroke-width:2}
+  .uni .sim-l{fill:none;stroke:#fff;stroke-width:2}
+  .uni .sim-t{font-family:var(--display);font-weight:700;fill:#fff}
+  .uni .sol-s{stroke:var(--naranja)}
+  .uni .i{fill:none;stroke:var(--naranja);stroke-width:3;stroke-linecap:round;stroke-dasharray:3 15}
+  .uni .pl rect{fill:var(--negro);stroke:rgba(255,255,255,.24);transition:fill .2s,stroke .2s}
+  .uni .pl text{font-family:var(--display);font-weight:700;letter-spacing:.14em;fill:var(--nav);transition:fill .2s}
+  .uni .pl .led{fill:var(--naranja);stroke:none}
+  .uni .nodo{cursor:pointer;outline:none}
+  .uni .nodo .sim,.uni .nodo .sim-l{transition:stroke .2s}
+  .uni .nodo:hover .pl rect,.uni .nodo:focus-visible .pl rect{fill:var(--naranja);stroke:var(--naranja)}
+  .uni .nodo:hover .pl text,.uni .nodo:focus-visible .pl text{fill:var(--graf)}
+  .uni .nodo:hover .pl .led,.uni .nodo:focus-visible .pl .led{fill:var(--graf)}
+  .uni .nodo:hover .sim,.uni .nodo:hover .sim-l,.uni .nodo:focus-visible .sim,.uni .nodo:focus-visible .sim-l{stroke:var(--naranja-2)}
+  .uni .nodo:focus-visible .pl rect{stroke:#fff;stroke-width:2}
+  /* Secuencia de encendido: una sola vez al cargar */
+  @keyframes dib{to{stroke-dashoffset:0}}
+  @keyframes ve{to{opacity:1}}
+  @keyframes fluye{to{stroke-dashoffset:-18}}
+  .js .uni .cab,.js .uni .bus{stroke-dasharray:1;stroke-dashoffset:1;animation:dib .55s var(--ease) forwards;animation-delay:var(--d,0s)}
+  .js .uni .nodo,.js .uni .pl-s{opacity:0;animation:ve .45s ease forwards;animation-delay:var(--d,0s)}
+  .js .uni .i{opacity:0;animation:ve .5s 1.75s ease forwards,fluye 1.1s 1.75s linear infinite}
 
-  /* ░░ TICKER ░░ */
-  .ticker{background:var(--naranja);color:var(--graf);overflow:hidden;white-space:nowrap;border-top:2px solid var(--graf-2);border-bottom:2px solid var(--graf-2)}
-  .ticker__in{display:inline-block;padding:13px 0;animation:tick 30s linear infinite;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
-  @keyframes tick{to{transform:translateX(-50%)}}
+  /* Placa de datos */
+  .datos{background:var(--graf-2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);position:relative}
+  .datos__in{display:grid;grid-template-columns:repeat(4,1fr)}
+  .dato{padding:30px 28px 30px 0;position:relative}
+  .dato + .dato{padding-left:28px;border-left:1px solid var(--linea)}
+  .dato small{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-3);margin-bottom:8px}
+  .dato b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(18px,1.6vw,22px);line-height:1.2;color:#fff}
+  .remache{position:absolute;width:7px;height:7px;border-radius:50%;background:#2E3B48;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
 
-  /* ░░ SERVICIOS: destacado solar ░░ */
-  .sol{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;background:linear-gradient(115deg,#131C25 0%,#17222D 55%,#1F2C39 100%);border:1px solid rgba(244,122,31,.5);overflow:hidden;clip-path:var(--corte);margin-bottom:22px}
-  .sol::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--naranja);z-index:2}
-  .sol__txt{position:relative;z-index:1;padding:50px 10px 50px 46px}
-  .sol__tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--graf);background:var(--naranja);padding:5px 10px;border-radius:3px;margin-bottom:22px}
-  .sol h3{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.02;text-transform:uppercase;margin-bottom:16px}
-  .sol p{color:var(--texto-2);font-size:16.5px;line-height:1.6;max-width:46ch;margin-bottom:22px}
+  /* ░░ PANELES SOLARES (banda naranja) ░░ */
+  .naranja{background:var(--naranja);color:var(--graf)}
+  .solar{padding:120px 0 110px;overflow:hidden}
+  .solar__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:30px 60px;align-items:center}
+  .solar .d2{margin:22px 0 22px;max-width:14ch}
+  .solar p{font-size:clamp(17px,1.4vw,20px);line-height:1.55;max-width:44ch;font-weight:500}
   .lista{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .lista li{display:flex;gap:11px;color:var(--texto-2);font-size:15px;line-height:1.5}
-  .lista li::before{content:"/";flex:none;color:var(--naranja);font-weight:700}
-  .sol .lista{margin-bottom:30px}
-  .sol__ctas{display:flex;flex-wrap:wrap;gap:12px}
-  .sol__img{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:360px;padding:30px 30px 30px 0}
-  .sol__img::before{content:"";position:absolute;left:8%;top:6%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(244,122,31,.32) 0%,rgba(244,122,31,.10) 40%,transparent 68%);pointer-events:none}
-  .sol__img img{position:relative;width:100%;max-width:620px;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
-  .sol__dato{position:absolute;right:26px;bottom:30px;background:rgba(19,28,37,.92);border:1px solid var(--linea-2);border-top:3px solid var(--naranja);border-radius:6px;padding:12px 18px 14px}
-  .sol__dato small{display:block;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-3);margin-bottom:4px}
-  .sol__dato b{font-family:var(--display);font-weight:700;font-size:34px;line-height:1}
-  .sol__dato b span{font-size:18px;color:var(--naranja);margin-left:2px}
+  .lista li{display:flex;gap:12px;line-height:1.5}
+  .lista li::before{content:"/";flex:none;font-weight:700;color:var(--naranja)}
+  .naranja .lista li::before,.claro .lista li::before{color:var(--graf)}
+  .solar .lista{margin:26px 0 34px;font-weight:600;font-size:16px}
+  .solar__ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .solar__vis{position:relative}
+  .solar__vis img{width:118%;max-width:none;height:auto;margin:-40px 0 0 -6%;filter:drop-shadow(0 34px 40px rgba(27,39,51,.35))}
+  .solar__dato{display:flex;align-items:flex-end;justify-content:flex-end;gap:18px;margin-top:-34px;font-family:var(--display);font-weight:700;line-height:.85;letter-spacing:-.03em;text-align:right}
+  .solar__dato b{display:block;font-size:clamp(60px,7vw,108px);white-space:nowrap}
+  .solar__dato span{display:block;max-width:12ch;padding-bottom:6px;font-size:13px;line-height:1.3;letter-spacing:.16em;text-transform:uppercase;font-weight:700;text-align:left}
 
-  /* ░░ SERVICIOS: ficha técnica ░░ */
-  .ficha{background:var(--graf-2);border:1px solid var(--linea);clip-path:var(--corte)}
-  .serv{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:20px 56px;padding:38px 44px 40px;border-top:1px solid var(--linea)}
-  .serv:first-child{border-top:0}
-  .serv h3{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15;margin-bottom:10px;display:flex;align-items:center;gap:12px}
-  .serv h3::before{content:"";width:18px;height:3px;background:var(--naranja);flex:none}
-  .serv p{color:var(--texto-3);font-size:15.5px;line-height:1.6;max-width:44ch}
-  .serv__wa{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--naranja-2)}
-  .serv__wa:hover{color:#fff}
-  .serv__wa svg{color:var(--wa)}
-  .serv .lista{display:block;columns:2;column-gap:36px;padding-top:4px}
-  .serv .lista li{break-inside:avoid;margin-bottom:10px}
-  .serv .lista--una{columns:1}
+  /* ░░ SERVICIOS (sección clara, tipo plano) ░░ */
+  .claro{background:var(--claro);color:var(--tinta)}
+  .plano{background-image:linear-gradient(rgba(27,39,51,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(27,39,51,.055) 1px,transparent 1px);background-size:32px 32px}
+  .serv{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.6fr);gap:56px}
+  .serv__intro{position:sticky;top:120px;align-self:start}
+  .serv__intro .d2{margin:20px 0 22px;font-size:clamp(38px,3.5vw,52px)}
+  .serv__sol{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--graf);text-decoration:none;border-bottom:2px solid var(--naranja);padding-bottom:4px}
+  .serv__sol:hover{color:var(--graf);border-bottom-color:var(--graf)}
+  .srow{position:relative;display:grid;grid-template-columns:52px minmax(0,1.08fr) minmax(0,.92fr);gap:16px 32px;padding:34px 24px 36px 0;border-top:1px solid var(--linea-t);transition:background .25s}
+  .srow:last-child{border-bottom:1px solid var(--linea-t)}
+  .srow::before{content:"";position:absolute;left:-24px;top:-1px;bottom:-1px;width:4px;background:var(--naranja);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+  .srow:hover::before{transform:scaleY(1)}
+  .srow__ico{width:52px;height:52px;color:var(--graf)}
+  .srow h3{margin-bottom:10px;font-size:clamp(23px,2vw,28px)}
+  .srow p{color:var(--tinta-2);font-size:15.5px;line-height:1.6}
+  .srow__wa{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--graf);text-decoration:none;border-bottom:1px solid rgba(27,39,51,.35);padding-bottom:3px}
+  .srow__wa:hover{color:var(--graf);border-bottom-color:var(--naranja)}
+  .srow__wa svg{color:#128C4A}
+  .srow .lista{font-size:14.5px;color:var(--tinta);padding-top:6px}
 
   /* ░░ RUBROS ░░ */
-  .tabs{background:var(--graf-2);border:1px solid var(--linea);border-radius:8px;overflow:hidden}
-  .tabs__bar{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--linea)}
-  .tab{background:transparent;border:0;border-right:1px solid var(--linea);cursor:pointer;padding:19px 14px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-3);position:relative;transition:color .2s,background .2s}
-  .tab:last-child{border-right:0}
-  .tab:hover{color:#fff;background:rgba(255,255,255,.03)}
-  .tab[aria-selected="true"]{color:#fff;background:var(--graf)}
-  .tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--naranja)}
-  .rubro{padding:36px 40px 40px}
-  .rubro + .rubro{border-top:1px solid var(--linea)}
-  .js .rubro + .rubro{border-top:0}
-  .rubro__solar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;background:linear-gradient(90deg,rgba(244,122,31,.12),rgba(244,122,31,.02));border:1px solid rgba(244,122,31,.35);border-left:3px solid var(--naranja);border-radius:6px;padding:20px 24px;margin-bottom:34px}
-  .rubro__solar h3{font-family:var(--display);font-weight:700;font-size:19px;margin-bottom:4px}
-  .rubro__solar p{color:var(--texto-2);font-size:15px;line-height:1.55;max-width:62ch}
-  .grupos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:30px 40px}
-  .grupo h3{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid rgba(244,122,31,.5)}
-  .grupo .lista li{font-size:14.5px}
+  .rubros{background:var(--graf)}
+  .cab-sec{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px 60px;align-items:end;margin-bottom:56px}
+  .tabs__bar{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--linea-2)}
+  .tab{background:none;border:0;cursor:pointer;padding:0 0 18px;margin-right:44px;font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,28px);letter-spacing:-.01em;color:var(--acero);position:relative;transition:color .2s}
+  .tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:var(--naranja);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  .tab:hover{color:#fff}
+  .tab[aria-selected="true"]{color:#fff}
+  .tab[aria-selected="true"]::after{transform:scaleX(1)}
+  .rubro{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px 64px;padding-top:48px}
+  .rubro[hidden]{display:none}
+  .rubro + .rubro{border-top:1px solid var(--linea);margin-top:48px}
+  .js .rubro + .rubro{border-top:0;margin-top:0}
+  .rubro__ilu{color:#fff;margin-bottom:28px}
+  .rubro__ilu .lin{fill:none;stroke:rgba(255,255,255,.75);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+  .rubro__ilu .lin-s{fill:none;stroke:rgba(255,255,255,.3);stroke-width:1.2}
+  .rubro__ilu .acc{fill:none;stroke:var(--naranja);stroke-width:1.8;stroke-linejoin:round}
+  .rubro__sol{border-left:3px solid var(--naranja);padding:4px 0 4px 22px}
+  .rubro__sol h3{font-family:var(--display);font-weight:700;font-size:21px;margin-bottom:8px}
+  .rubro__sol p{color:var(--texto-2);font-size:15px;line-height:1.6;margin-bottom:16px}
+  .link-n{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--naranja-2);text-decoration:none}
+  .link-n:hover{color:#fff}
+  .link-n svg{transition:transform .2s var(--ease)}
+  .link-n:hover svg{transform:translateX(3px)}
+  .grupos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}
+  .grupo h4{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-3);padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--linea-2)}
+  .grupo .lista{font-size:15px;color:#fff}
 
   /* ░░ PROCESO ░░ */
-  .proceso-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:80px 100%;pointer-events:none}
-  .pasos{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:22px}
-  .paso{background:var(--graf);border:1px solid rgba(255,255,255,.07);border-top:3px solid var(--naranja);border-radius:6px;padding:30px 26px 34px}
-  .paso__n{font-family:var(--display);font-weight:700;font-size:54px;line-height:.9;color:rgba(244,122,31,.75);margin-bottom:10px}
-  .paso h3{font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:10px}
-  .paso p{color:var(--texto-3);font-size:15px;line-height:1.55}
+  .proceso{background:var(--negro);overflow:hidden}
+  .proceso .cab-sec{margin-bottom:80px}
+  .circuito{position:relative;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+  .circuito::before,.circuito::after{content:"";position:absolute;left:0;right:0;top:15px;height:2px}
+  .circuito::before{background:rgba(255,255,255,.14)}
+  .circuito::after{background:var(--naranja);transform:scaleX(var(--p,0));transform-origin:left;box-shadow:0 0 14px rgba(244,122,31,.6)}
+  .etapa{position:relative;padding-top:58px}
+  .etapa::before{content:"";position:absolute;left:0;top:4px;width:24px;height:24px;border-radius:50%;background:var(--negro);border:2px solid rgba(255,255,255,.3);transition:background .3s,border-color .3s,box-shadow .3s;z-index:1}
+  .etapa.on::before{background:var(--naranja);border-color:var(--naranja);box-shadow:0 0 0 6px rgba(244,122,31,.18)}
+  .etapa__n{display:block;font-family:var(--display);font-weight:700;font-size:clamp(56px,6vw,88px);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35);margin-bottom:18px;transition:color .4s,-webkit-text-stroke-color .4s}
+  .etapa.on .etapa__n{color:var(--naranja);-webkit-text-stroke-color:var(--naranja)}
+  .etapa h3{font-family:var(--display);font-weight:600;font-size:22px;margin-bottom:10px}
+  .etapa p{color:var(--texto-2);font-size:15.5px;line-height:1.6;max-width:30ch}
 
   /* ░░ TRABAJOS ░░ */
-  .obras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:18px}
-  .obra{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--linea);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)}
-  .obra img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .obra::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(19,28,37,.92) 0%,rgba(19,28,37,.15) 55%,transparent 100%)}
-  .obra__tag{position:absolute;z-index:1;left:18px;top:16px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--graf);background:var(--naranja);padding:5px 10px}
-  .obra figcaption{position:absolute;z-index:1;left:20px;right:20px;bottom:18px;font-family:var(--display);font-weight:600;font-size:19px;line-height:1.2}
+  .trabajos{background:var(--graf)}
+  .mosaico{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:250px;gap:14px}
+  .foto{position:relative;overflow:hidden;margin:0;clip-path:var(--corte);background:var(--graf-2)}
+  .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .foto:hover img{transform:scale(1.04)}
+  .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,16,22,.9) 0%,rgba(11,16,22,.1) 50%,transparent 100%);pointer-events:none}
+  .foto .placa{position:absolute;z-index:1;left:20px;top:20px}
+  .foto figcaption{position:absolute;z-index:1;left:22px;right:22px;bottom:20px;font-family:var(--display);font-weight:600;font-size:clamp(18px,1.6vw,23px);line-height:1.2}
+  .foto--a{grid-column:1/8;grid-row:1/3}
+  .foto--b{grid-column:8/13;grid-row:1/2}
+  .foto--c{grid-column:8/13;grid-row:2/3}
+  .foto--d{grid-column:1/13;grid-row:3/4}
+  .foto--a figcaption{font-size:clamp(22px,2.4vw,34px);max-width:20ch}
 
   /* ░░ NOSOTROS ░░ */
-  .nos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:54px;align-items:start}
-  .nos__p{color:var(--texto-2);font-size:17px;line-height:1.65;margin-bottom:18px;max-width:46ch}
-  .nos__p--2{color:var(--texto-3);font-size:16px}
-  .nos__foto{margin-top:30px;position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--linea);clip-path:var(--corte)}
+  .nos{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+  .nos__foto{position:sticky;top:110px;aspect-ratio:3/4;clip-path:var(--corte);background:var(--claro-2);margin:0}
   .nos__foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .exp{margin-top:32px;background:var(--graf-2);border:1px solid var(--linea);border-top:3px solid var(--naranja);border-radius:6px;padding:26px 28px}
-  .exp b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.2vw,40px);line-height:1;margin-bottom:10px}
-  .exp p{color:var(--texto-2);font-size:16px;line-height:1.6}
-  .socios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,185px),1fr));gap:18px}
-  .socio{background:var(--graf-3);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:26px 22px;text-align:center}
-  .socio img{width:132px;height:132px;border-radius:50%;object-fit:cover;margin:0 auto 18px;border:2px solid rgba(244,122,31,.55)}
-  .socio b{display:block;font-family:var(--display);font-weight:600;font-size:20px}
-  .socio span{display:block;color:var(--texto-3);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
-  .nos__der{display:flex;flex-direction:column;gap:26px}
-  .nos__frase{text-align:center;color:var(--texto-2);font-size:16px;line-height:1.6;max-width:44ch;margin:0 auto}
-  .valores{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea);border-radius:8px;overflow:hidden}
-  .valor{background:var(--graf);padding:22px 20px}
-  .valor b{display:block;font-family:var(--display);font-weight:600;font-size:16px;color:var(--naranja-2);margin-bottom:8px}
-  .valor p{color:var(--texto-3);font-size:14px;line-height:1.5}
-  .zona{background:var(--graf-2);border:1px dashed rgba(244,122,31,.4);border-radius:8px;padding:22px 24px}
-  .zona b{display:block;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
-  .zona p{color:var(--texto-2);font-size:14.5px;line-height:1.65}
-  .zona small{display:block;color:var(--texto-3);font-size:13px;margin-top:10px}
+  .nos__foto .placa{position:absolute;left:18px;bottom:18px}
+  .nos .d2{margin:20px 0 24px}
+  .nos__p{color:var(--tinta-2);font-size:17px;line-height:1.65;max-width:54ch;margin-bottom:14px}
+  .nos__p strong{color:var(--tinta);font-weight:600}
+  .socios{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:40px 0 36px}
+  .socio{margin:0}
+  .socio__img{position:relative;aspect-ratio:1;overflow:hidden;clip-path:var(--corte);background:var(--claro-2)}
+  .socio__img img{width:100%;height:100%;object-fit:cover}
+  .socio figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:2px solid var(--graf);padding:14px 0 10px}
+  .socio b{font-family:var(--display);font-weight:700;font-size:clamp(20px,1.9vw,26px)}
+  .socio span{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
+  .exp{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:center;padding:26px 0;border-top:1px solid var(--linea-t);border-bottom:1px solid var(--linea-t)}
+  .exp b{font-family:var(--display);font-weight:700;font-size:clamp(40px,4.4vw,64px);line-height:.9;letter-spacing:-.03em}
+  .exp p{color:var(--tinta-2);font-size:15.5px;line-height:1.55;max-width:40ch}
+  .frase{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.2vw,30px);line-height:1.25;letter-spacing:-.01em;margin:36px 0;max-width:30ch}
+  .valores{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .valor{border-top:3px solid var(--naranja);padding-top:16px}
+  .valor b{display:block;font-family:var(--display);font-weight:700;font-size:20px;margin-bottom:6px}
+  .valor p{color:var(--tinta-2);font-size:14.5px;line-height:1.55}
+  .zona{margin-top:110px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 64px;align-items:center;padding-top:64px;border-top:2px solid var(--graf)}
+  .zona .d3{margin:18px 0 14px}
+  .zona p{color:var(--tinta-2);font-size:16.5px;line-height:1.65;max-width:42ch}
+  .zona small{display:block;margin-top:14px;font-size:14px;color:var(--tinta-2)}
+  .mapa{width:100%;max-width:560px;justify-self:center}
+  .mapa .anillo{fill:none;stroke:rgba(27,39,51,.28);stroke-width:1.2;stroke-dasharray:4 6}
+  .mapa .anillo-110{fill:rgba(244,122,31,.07);stroke:var(--graf);stroke-width:1.6;stroke-dasharray:none}
+  .mapa .rio{fill:none;stroke:#9DB0C2;stroke-width:9;stroke-linecap:round;opacity:.55}
+  .mapa .rad{stroke:rgba(27,39,51,.14);stroke-width:1}
+  .mapa .pueblo circle{fill:var(--graf)}
+  .mapa .pueblo text{font-family:var(--body);font-weight:600;font-size:13px;fill:var(--tinta)}
+  .mapa .centro circle.c{fill:var(--naranja);stroke:var(--graf);stroke-width:2}
+  .mapa .centro text{font-family:var(--display);font-weight:700;font-size:15px;fill:var(--tinta)}
+  .mapa .eje{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;fill:var(--tinta-2)}
+  .js .mapa .pueblo{opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s var(--ease);transition-delay:var(--d,0s)}
+  .js .mapa.on .pueblo{opacity:1;transform:none}
+  @keyframes onda{from{r:10;opacity:.7}to{r:44;opacity:0}}
+  .mapa .onda{fill:none;stroke:var(--naranja);stroke-width:2;animation:onda 2.4s ease-out infinite}
 
-  /* ░░ FAQ ░░ */
-  .faq{max-width:900px;margin:0 auto;display:grid;gap:12px}
-  .faq details{background:var(--graf);border:1px solid var(--linea);border-radius:6px;transition:border-color .2s}
-  .faq details[open]{border-color:rgba(244,122,31,.5)}
-  .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:21px 24px;font-family:var(--display);font-weight:600;font-size:18px;line-height:1.3}
+  /* ░░ PREGUNTAS ░░ */
+  .faq-sec{background:var(--graf)}
+  .faq-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:56px}
+  .faq-grid .cab{position:sticky;top:120px;align-self:start}
+  .faq-grid .cab p{margin-top:20px;color:var(--texto-2)}
+  .faq details{border-top:1px solid var(--linea-2)}
+  .faq details:last-child{border-bottom:1px solid var(--linea-2)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;font-family:var(--display);font-weight:600;font-size:clamp(18px,1.6vw,22px);line-height:1.3;transition:color .2s}
+  .faq summary:hover{color:var(--naranja-2)}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";flex:none;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid rgba(244,122,31,.5);border-radius:3px;color:var(--naranja);font-size:18px;line-height:1}
-  .faq details[open] summary::after{content:"−"}
-  .faq details p{padding:0 24px 22px;color:var(--texto-2);font-size:15.5px;line-height:1.65;max-width:72ch}
+  .faq summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--naranja),var(--naranja)) center/100% 2px no-repeat,linear-gradient(var(--naranja),var(--naranja)) center/2px 100% no-repeat;transition:transform .25s var(--ease)}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 40px 28px 0;color:var(--texto-2);font-size:16px;line-height:1.7;max-width:68ch}
 
-  /* ░░ CONTACTO ░░ */
-  .contacto{overflow:hidden}
-  .contacto__rayo{position:absolute;right:-40px;top:50%;transform:translateY(-50%) rotate(8deg);height:115%;width:auto;opacity:.06;pointer-events:none}
-  .contacto__in{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:50px;align-items:center}
-  .contacto h2{font-size:clamp(32px,5vw,60px);line-height:1;margin-bottom:20px}
-  .contacto__p{color:var(--texto-2);font-size:18px;line-height:1.6;max-width:40ch;margin-bottom:34px}
-  .canales{display:flex;flex-direction:column;gap:14px}
-  .canal{display:flex;align-items:center;gap:16px;background:var(--graf);border:1px solid var(--linea);border-radius:8px;padding:20px 22px;text-decoration:none;color:#fff;transition:border-color .2s}
-  .canal:hover{border-color:var(--naranja);color:#fff}
-  .canal__ico{flex:none;width:44px;height:44px;border-radius:8px;background:rgba(37,211,102,.16);display:flex;align-items:center;justify-content:center;color:var(--wa)}
-  .canal__ico--mail{background:rgba(244,122,31,.15);color:var(--naranja)}
-  .canal small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-3)}
-  .canal b{display:block;font-family:var(--display);font-weight:600;font-size:18px;overflow-wrap:break-word}
+  /* ░░ CONTACTO (banda naranja) ░░ */
+  .contacto{position:relative;padding:130px 0 120px;overflow:hidden}
+  .contacto__rayo{position:absolute;right:-6%;top:-12%;height:124%;width:auto;filter:brightness(0) invert(1);opacity:.16;pointer-events:none}
+  .contacto__in{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px 80px;align-items:end}
+  .contacto .d1{font-size:clamp(46px,7vw,104px);max-width:12ch;margin-bottom:28px}
+  .contacto__p{font-size:clamp(17px,1.4vw,20px);line-height:1.55;max-width:38ch;margin-bottom:34px;font-weight:500}
+  .canales{display:flex;flex-direction:column}
+  .canal{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:18px;padding:22px 4px;border-top:1px solid rgba(27,39,51,.3);text-decoration:none;color:var(--graf);transition:padding .25s var(--ease),background .25s}
+  .canal:last-child{border-bottom:1px solid rgba(27,39,51,.3)}
+  .canal:hover{color:var(--graf);padding-left:12px;background:rgba(27,39,51,.06)}
+  .canal__ico{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--graf);color:#fff}
+  .canal small{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .canal b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(17px,1.6vw,21px);overflow-wrap:break-word}
+  .canal > svg{color:var(--graf);transition:transform .2s var(--ease)}
+  .canal:hover > svg{transform:translateX(3px)}
 
   /* ░░ FOOTER ░░ */
-  .footer{background:var(--negro);border-top:1px solid var(--linea);padding:48px 28px 40px}
-  .footer__in{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
-  .footer__logo img{height:54px;width:auto}
-  .footer__der{display:flex;flex-direction:column;align-items:flex-end;gap:16px}
-  .redes{display:flex;gap:10px}
-  .redes a{width:42px;height:42px;border:1px solid rgba(255,255,255,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--nav)}
-  .redes a:hover{border-color:var(--naranja);color:var(--naranja)}
-  .footer__txt{color:#7A8893;font-size:13px;line-height:1.7;text-align:right}
+  .footer{background:var(--negro);padding:56px 0 46px;border-top:1px solid var(--linea)}
+  .footer__in{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px}
+  .footer__logo img{height:56px;width:auto}
+  .footer__txt{color:#7A8893;font-size:13px;line-height:1.8}
   .footer__txt a{color:var(--naranja-2);text-decoration:none}
-  .footer__txt a:hover{color:var(--naranja)}
-  .footer__rot{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--texto-3)}
+  .footer__txt a:hover{color:#fff}
+  .footer__rot{font-family:var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--texto-3)}
+  .footer__der{display:flex;flex-direction:column;align-items:flex-end;gap:16px;text-align:right}
+  .redes{display:flex;gap:10px}
+  .redes a{width:44px;height:44px;border:1px solid var(--linea-2);display:flex;align-items:center;justify-content:center;color:var(--nav)}
+  .redes a:hover{border-color:var(--naranja);color:var(--naranja)}
 
   /* ░░ WHATSAPP FLOTANTE ░░ */
   .wa{position:fixed;right:22px;bottom:22px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
   .wa__lista{display:none;flex-direction:column;gap:10px;align-items:flex-end}
   .wa.abierto .wa__lista{display:flex}
-  .wa__op{display:flex;align-items:center;gap:12px;background:var(--graf);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:10px 18px 10px 14px;text-decoration:none;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+  .wa__op{display:flex;align-items:center;gap:12px;background:var(--graf);border:1px solid var(--linea-2);border-radius:100px;padding:10px 18px 10px 12px;text-decoration:none;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.4)}
   .wa__op:hover{border-color:var(--wa);color:#fff}
   .wa__op i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;color:#fff}
   .wa__op small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--texto-3)}
@@ -355,73 +438,127 @@ document.addEventListener('click', function (e) {
   .wa.abierto .wa__btn .x{display:block}
   .wa.abierto .wa__btn .w{display:none}
 
+  /* Entrada del hero (una sola secuencia) */
+  @keyframes sube{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  .js .hero .placa{animation:sube .6s var(--ease) both}
+  .js .hero__h1 .l{animation:sube .8s var(--ease) both}
+  .js .hero__h1 .l:nth-child(2){animation-delay:.08s}
+  .js .hero__fila{animation:sube .8s .2s var(--ease) both}
+
   /* ░░ RESPONSIVE ░░ */
-  @media (max-width:1139px){
+  @media (max-width:1180px){
     .nav__links{display:none}
     .burger{display:flex}
+    .srow{grid-template-columns:52px minmax(0,1fr);}
+    .srow .lista{grid-column:2}
   }
-  @media (max-width:1100px){
-    .serv .lista{columns:1}
-  }
-  @media (max-width:959px){
-    .hero__in{grid-template-columns:1fr}
-    .hero__rayo{display:none}
-    .sol{grid-template-columns:1fr;gap:0}
-    .sol__txt{padding:8px 24px 38px}
-    .sol__img{order:-1;min-height:0;padding:34px 14px 6px}
-    .sol__dato{display:none}
-    .serv{grid-template-columns:1fr;padding:32px 28px 34px}
+  @media (max-width:1000px){
+    .wrap,.nav__in{padding:0 28px}
+    .menu{padding:10px 28px 24px}
+    .sec{padding:100px 0}
+    .hero__fila{grid-template-columns:1fr}
+    .aviso{justify-self:start}
+    .uni--d{display:none}
+    .uni--m{display:block;max-width:440px;margin:0 auto}
+    .datos__in{grid-template-columns:1fr 1fr}
+    .dato:nth-child(3){padding-left:0;border-left:0}
+    .dato:nth-child(n+3){border-top:1px solid var(--linea)}
+    .solar__in{grid-template-columns:1fr}
+    .solar__vis{order:-1;margin:-40px 0 30px}
+    .solar__vis img{width:100%;margin:0}
+    .serv{grid-template-columns:1fr;gap:40px}
+    .serv__intro{position:static}
+    .srow{padding-left:0}
+    .srow::before{left:-14px}
+    .cab-sec{grid-template-columns:1fr}
+    .rubro{grid-template-columns:1fr;gap:36px}
+    .circuito{grid-template-columns:1fr;gap:0;padding-left:46px}
+    .circuito::before,.circuito::after{left:11px;right:auto;top:6px;bottom:6px;width:2px;height:auto}
+    .circuito::after{transform:scaleY(var(--p,0));transform-origin:top}
+    .etapa{padding:0 0 44px}
+    .etapa::before{left:-46px;top:2px}
+    .etapa__n{font-size:56px}
+    .mosaico{grid-auto-rows:220px}
+    .foto--a{grid-column:1/13;grid-row:auto / span 2}
+    .foto--b{grid-column:1/7;grid-row:auto}
+    .foto--c{grid-column:7/13;grid-row:auto}
+    .foto--d{grid-column:1/13;grid-row:auto}
+    .nos{grid-template-columns:1fr;gap:44px}
+    .nos__foto{position:relative;top:auto;aspect-ratio:4/3}
+    .zona{grid-template-columns:1fr;margin-top:80px}
+    .faq-grid{grid-template-columns:1fr;gap:28px}
+    .faq-grid .cab{position:static}
+    .contacto__in{grid-template-columns:1fr}
   }
   @media (max-width:640px){
-    .sec{padding:76px 18px}
-    .hero{padding:104px 18px 60px;min-height:0}
-    .hero__linea{display:none}
-    .nav__in{padding:0 16px;height:66px}
+    .wrap,.nav__in{padding:0 18px}
+    .menu{padding:8px 18px 22px}
+    .nav__in{height:68px}
     .nav__logo img{height:38px}
-    .menu{padding:10px 16px 20px}
-    html{scroll-padding-top:74px}
+    html{scroll-padding-top:72px}
+    .sec{padding:80px 0}
+    .hero{padding-top:118px}
+    .hero__h1{margin:22px 0 28px}
     .hero__ctas .btn{width:100%}
-    .aviso{padding:12px 14px}
-    .serv{padding:28px 20px 30px}
-    .serv .lista{columns:1}
-    .valores{grid-template-columns:1fr}
-    .canal{padding:18px 16px;gap:14px}
-    .canal b{font-size:15.5px}
-    .tabs__bar{grid-template-columns:1fr}
-    .tab{border-right:0;border-bottom:1px solid var(--linea);text-align:left;padding:16px 20px}
-    .tab:last-child{border-bottom:0}
-    .tab[aria-selected="true"]::after{top:0;bottom:0;right:auto;width:3px;height:auto}
-    .rubro{padding:26px 18px 30px}
-    .rubro__solar{padding:18px}
-    .sec-head{margin-bottom:34px}
-    .footer__der{align-items:flex-start}
-    .footer__txt{text-align:left}
+    .aviso{padding:14px 16px;gap:12px}
+    .unifilar{margin-top:44px}
+    .unifilar__cab span:last-child{display:none}
+    .datos__in{grid-template-columns:1fr}
+    .dato,.dato + .dato{padding:20px 0;border-left:0}
+    .dato + .dato{border-top:1px solid var(--linea)}
+    .solar{padding:90px 0 80px}
+    .solar__dato{justify-content:flex-start;flex-wrap:wrap;gap:6px 14px;margin-top:-10px}
+    .solar__dato b{font-size:58px}
+    .hero__h1 .l{display:inline}
+    .d1{line-height:1}
+    .socio figcaption{flex-direction:column;align-items:flex-start;gap:4px}
+    .mapa .pueblo text{font-size:18px}
+    .mapa .centro text{font-size:21px}
+    .mapa .eje{font-size:14px}
+    .srow{grid-template-columns:1fr;gap:12px}
+    .srow .lista{grid-column:1}
+    .srow__ico{width:44px;height:44px}
+    .grupos{grid-template-columns:1fr;gap:28px}
+    .tab{margin-right:24px;font-size:19px}
+    .mosaico{grid-auto-rows:200px;gap:10px}
+    .foto--b,.foto--c{grid-column:1/13}
+    .socios{gap:12px}
+    .exp{grid-template-columns:1fr}
+    .valores{grid-template-columns:1fr;gap:20px}
+    .footer__der{align-items:flex-start;text-align:left}
     .wa{right:16px;bottom:16px}
     .wa__btn{width:56px;height:56px}
+    .canal{grid-template-columns:40px 1fr;gap:14px}
+    .canal > svg{display:none}
+    .canal__ico{width:40px;height:40px}
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
+    .js .uni .cab,.js .uni .bus{stroke-dashoffset:0}
+    .js .uni .nodo,.js .uni .pl-s,.js .uni .i{opacity:1}
+    .js .mapa .pueblo{opacity:1;transform:none}
+    .mapa .onda{display:none}
+    .circuito::after{transform:none}
+    .etapa::before{background:var(--naranja);border-color:var(--naranja)}
+    .etapa__n{color:var(--naranja);-webkit-text-stroke-color:var(--naranja)}
   }
 </style>
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscript=1"></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscript=1"></noscript>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.19-4.97-4.39-.14-.2-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.01-2.41.26-.29.57-.36.76-.36l.55.01c.18.01.41-.07.64.49.24.57.81 1.99.88 2.13.07.14.12.31.02.5-.09.2-.14.31-.28.48-.14.16-.29.37-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.2.69-.81.88-1.08.18-.28.37-.23.62-.14.25.09 1.61.76 1.88.9.28.14.46.2.53.32.07.11.07.66-.17 1.34z"/></symbol>
-  <symbol id="i-flecha" viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
 </svg>
 
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<!-- ░░ NAV ░░ -->
-<header class="nav">
+<!-- ░░ HEADER ░░ -->
+<header class="nav" id="nav">
   <div class="nav__in">
-    <a class="nav__logo" href="#top" aria-label="AyB Energía Integral, ir al inicio">
-      <img src="img/ayb-logo-blanco-sm.png" alt="AyB Energía Integral" width="62" height="46">
-    </a>
+    <a class="nav__logo" href="#top" aria-label="AyB Energía Integral, ir al inicio"><img src="img/ayb-logo-blanco-sm.png" alt="AyB Energía Integral" width="59" height="44"></a>
     <nav class="nav__links" aria-label="Secciones">
       <a class="nav__link nav__link--sol" href="paneles-solares/"><span class="punto"></span>Paneles solares</a>
       <a class="nav__link" href="#servicios">Servicios</a>
@@ -429,10 +566,10 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
       <a class="nav__link" href="#proceso">Cómo trabajamos</a>
       <a class="nav__link" href="#nosotros">Nosotros</a>
       <a class="nav__link" href="#contacto">Contacto</a>
-      <a class="nav__cta" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
+      <a class="btn btn--naranja nav__cta" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
     </nav>
     <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2"/></svg>
     </button>
   </div>
   <nav class="menu" id="menu" aria-label="Menú">
@@ -451,416 +588,432 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
 <!-- ░░ HERO ░░ -->
 <section class="hero" id="top">
   <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__linea" aria-hidden="true"></div>
-  <div class="hero__in">
-    <div>
-      <div class="pill"><span class="punto"></span><span>Paraná · Entre Ríos · Industria y agro</span></div>
-      <h1><span class="l">Energía que</span><span class="l"><em>no para</em> tu</span><span class="l">planta.</span></h1>
-      <p class="hero__p">Servicios eléctricos industriales y automatización para la industria y el agro. Paneles solares, instalaciones, media tensión, tableros y mantenimiento. Equipo propio, bajo norma y con respuesta rápida.</p>
-      <div class="hero__ctas">
-        <a class="btn btn--naranja" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
-        <a class="btn btn--borde" href="#servicios">Ver servicios</a>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="placa">Paraná · Entre Ríos · Industria y agro</span>
+    <h1 class="d1 hero__h1"><span class="l">Energía que no para</span> <span class="l">tu planta.</span></h1>
+    <div class="hero__fila">
+      <div>
+        <p class="lead">Servicios eléctricos industriales y automatización para la industria y el agro. Paneles solares, instalaciones, media tensión, tableros y mantenimiento. Equipo propio, bajo norma y con respuesta rápida.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--naranja" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
+          <a class="btn btn--linea" href="#servicios">Ver servicios</a>
+        </div>
       </div>
       <a class="aviso" href="paneles-solares/">
         <span class="aviso__tag">Nuevo</span>
-        <span class="aviso__txt"><strong>Paneles solares para tu planta.</strong> Reducí entre un 40% y un 70% la factura de luz.</span>
+        <span class="aviso__txt"><strong>Paneles solares para tu planta</strong>Reducí entre un 40% y un 70% la factura de luz.</span>
         <svg width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg>
       </a>
     </div>
-    <div class="hero__rayo" aria-hidden="true">
-      <img src="img/AyB_rayo_naranja-blanco.png" alt="" width="271" height="534">
+    <div class="unifilar">
+      <div class="unifilar__cab" aria-hidden="true"><span>Unifilar · de la red al motor</span><span>Tocá cada parte para ver el servicio</span></div>
+<svg class="uni uni--d" viewBox="0 0 1240 300" role="group" aria-labelledby="uni-t uni-d">
+<title id="uni-t">Diagrama unifilar de una planta</title>
+<desc id="uni-d">La red de media tensión pasa por la celda y el transformador, los paneles solares por el inversor, y ambos llegan al tablero general, que alimenta motores y bombas, la automatización y la iluminación. Cada parte lleva a su servicio.</desc>
+<path class="cab" pathLength="1" style="--d:0.1s" d="M98 212 H214"/>
+<path class="cab" pathLength="1" style="--d:0.35s" d="M278 212 H394"/>
+<path class="cab" pathLength="1" style="--d:0.6s" d="M460 212 H640"/>
+<path class="cab" pathLength="1" style="--d:0.2s" d="M161 88 H300"/>
+<path class="cab" pathLength="1" style="--d:0.5s" d="M358 88 H640"/>
+<path class="bus" pathLength="1" style="--d:.85s" d="M640 36 V256"/>
+<path class="cab" pathLength="1" style="--d:1.1s" d="M640 68 H880"/>
+<path class="cab" pathLength="1" style="--d:1.2s" d="M640 146 H880"/>
+<path class="cab" pathLength="1" style="--d:1.3s" d="M640 224 H880"/>
+<path class="sim-l pl-s" style="--d:1.25s" d="M694 62 l12 12 M706 62 l-12 12"/>
+<path class="sim-l pl-s" style="--d:1.25s" d="M694 140 l12 12 M706 140 l-12 12"/>
+<path class="sim-l pl-s" style="--d:1.25s" d="M694 218 l12 12 M706 218 l-12 12"/>
+<path class="i" d="M98 212 H214"/>
+<path class="i" d="M278 212 H394"/>
+<path class="i" d="M460 212 H640"/>
+<path class="i" d="M161 88 H300"/>
+<path class="i" d="M358 88 H640"/>
+<path class="i" d="M640 68 H880"/>
+<path class="i" d="M640 146 H880"/>
+<path class="i" d="M640 224 H880"/>
+<a class="nodo" href="#serv-mt" aria-label="Media y alta tensión: red, celda y transformador">
+<g style="--d:0s" class="pl-s"><circle class="sim" cx="72" cy="212" r="26"/><path class="sim-l" d="M56 212 c5 -12 11 -12 16 0 s11 12 16 0"/><g class="pl"><rect x="5.5" y="252" width="133" height="24"/><rect class="led" x="15.5" y="261.0" width="6" height="6"/><text x="28.5" y="268.1" font-size="11.5" letter-spacing="1.6">RED 13,2 KV</text></g></g>
+<g style="--d:.25s" class="pl-s"><rect class="sim" x="214" y="184" width="64" height="56"/><path class="sim-l" d="M226 212 H266 M240 206 l12 12 M252 206 l-12 12"/><g class="pl"><rect x="194.0" y="252" width="104" height="24"/><rect class="led" x="204.0" y="261.0" width="6" height="6"/><text x="217.0" y="268.1" font-size="11.5" letter-spacing="1.6">CELDA MT</text></g></g>
+<g style="--d:.5s" class="pl-s"><circle class="sim-l" cx="414" cy="212" r="20"/><circle class="sim-l" cx="440" cy="212" r="20"/><g class="pl"><rect x="351.0" y="252" width="152" height="24"/><rect class="led" x="361.0" y="261.0" width="6" height="6"/><text x="374.0" y="268.1" font-size="11.5" letter-spacing="1.6">TRANSFORMADOR</text></g></g>
+</a>
+<a class="nodo" href="paneles-solares/" aria-label="Paneles solares">
+<g style="--d:.1s" class="pl-s"><polygon class="sim sol-s" points="40,114 62,62 172,62 150,114"/><path class="sim-l sol-s" d="M99 62 L77 114 M136 62 L114 114 M51 88 H161"/><g class="pl"><rect x="20.0" y="126" width="172" height="24"/><rect class="led" x="30.0" y="135.0" width="6" height="6"/><text x="43.0" y="142.1" font-size="11.5" letter-spacing="1.6">PANELES SOLARES</text></g></g>
+<g style="--d:.4s" class="pl-s"><rect class="sim" x="300" y="60" width="58" height="56"/><path class="sim-l" d="M300 116 L358 60"/><text class="sim-t" x="306" y="82" font-size="15">=</text><text class="sim-t" x="336" y="110" font-size="17">~</text><g class="pl"><rect x="277.0" y="126" width="104" height="24"/><rect class="led" x="287.0" y="135.0" width="6" height="6"/><text x="300.0" y="142.1" font-size="11.5" letter-spacing="1.6">INVERSOR</text></g></g>
+</a>
+<a class="nodo" href="#serv-tableros" aria-label="Tableros eléctricos">
+<g style="--d:.85s" class="pl-s"><rect x="622" y="30" width="36" height="232" fill="transparent"/><g class="pl"><rect x="554.0" y="268" width="172" height="24"/><rect class="led" x="564.0" y="277.0" width="6" height="6"/><text x="577.0" y="284.1" font-size="11.5" letter-spacing="1.6">TABLERO GENERAL</text></g></g>
+</a>
+<a class="nodo" href="#serv-instalaciones" aria-label="Instalaciones: motores y bombas">
+<g style="--d:1.3s" class="pl-s"><circle class="sim" cx="906" cy="68" r="26"/><text class="sim-t" x="906" y="76" font-size="22" text-anchor="middle">M</text><g class="pl"><rect x="952.0" y="56" width="181" height="24"/><rect class="led" x="962.0" y="65.0" width="6" height="6"/><text x="975.0" y="72.1" font-size="11.5" letter-spacing="1.6">MOTORES Y BOMBAS</text></g></g></a>
+<a class="nodo" href="#serv-automatizacion" aria-label="Automatización y control">
+<g style="--d:1.4s" class="pl-s"><rect class="sim" x="880" y="122" width="64" height="48"/><text class="sim-t" x="912" y="152" font-size="15" text-anchor="middle" letter-spacing="1">PLC</text><g class="pl"><rect x="952.0" y="134" width="220" height="24"/><rect class="led" x="962.0" y="143.0" width="6" height="6"/><text x="975.0" y="150.1" font-size="11.5" letter-spacing="1.6">AUTOMATIZACIÓN Y PLC</text></g></g></a>
+<a class="nodo" href="#serv-instalaciones" aria-label="Instalaciones: iluminación">
+<g style="--d:1.5s" class="pl-s"><circle class="sim" cx="906" cy="224" r="26"/><path class="sim-l" d="M888 206 L924 242 M924 206 L888 242"/><g class="pl"><rect x="952.0" y="212" width="133" height="24"/><rect class="led" x="962.0" y="221.0" width="6" height="6"/><text x="975.0" y="228.1" font-size="11.5" letter-spacing="1.6">ILUMINACIÓN</text></g></g></a>
+</svg>
+<svg class="uni uni--m" viewBox="0 0 360 440" role="group" aria-labelledby="unim-t">
+<title id="unim-t">Diagrama unifilar de una planta: red de media tensión y paneles solares que llegan al tablero general y alimentan motores, automatización e iluminación</title>
+<path class="cab" pathLength="1" style="--d:0.1s" d="M75 46 H140"/>
+<path class="cab" pathLength="1" style="--d:0.35s" d="M184 46 H257"/>
+<path class="cab" pathLength="1" style="--d:0.55s" d="M303 46 H350"/>
+<path class="cab" pathLength="1" style="--d:0.2s" d="M110 148 H196"/>
+<path class="cab" pathLength="1" style="--d:0.5s" d="M240 148 H350"/>
+<path class="bus" pathLength="1" style="--d:.8s" d="M350 30 V410"/>
+<path class="cab" pathLength="1" style="--d:1.05s" d="M350 270 H74"/>
+<path class="cab" pathLength="1" style="--d:1.15s" d="M350 330 H78"/>
+<path class="cab" pathLength="1" style="--d:1.25s" d="M350 390 H74"/>
+<path class="sim-l pl-s" style="--d:1.2s" d="M310 265 l10 10 M320 265 l-10 10"/>
+<path class="sim-l pl-s" style="--d:1.2s" d="M310 325 l10 10 M320 325 l-10 10"/>
+<path class="sim-l pl-s" style="--d:1.2s" d="M310 385 l10 10 M320 385 l-10 10"/>
+<path class="i" d="M75 46 H140"/>
+<path class="i" d="M184 46 H257"/>
+<path class="i" d="M303 46 H350"/>
+<path class="i" d="M110 148 H196"/>
+<path class="i" d="M240 148 H350"/>
+<path class="i" d="M350 270 H74"/>
+<path class="i" d="M350 330 H78"/>
+<path class="i" d="M350 390 H74"/>
+<a class="nodo" href="#serv-mt" aria-label="Media y alta tensión: red, celda y transformador">
+<g style="--d:0s" class="pl-s"><circle class="sim" cx="57" cy="46" r="18"/><path class="sim-l" d="M45 46 c4 -9 8 -9 12 0 s8 9 12 0"/><g class="pl"><rect x="0.0" y="74" width="114" height="22"/><rect class="led" x="7.0" y="82.5" width="5" height="5"/><text x="19.0" y="88.6" font-size="10" letter-spacing="0.6">RED 13,2 KV</text></g></g>
+<g style="--d:.25s" class="pl-s"><rect class="sim" x="140" y="28" width="44" height="36"/><path class="sim-l" d="M146 46 H178 M157 41 l10 10 M167 41 l-10 10"/><g class="pl"><rect x="117.0" y="74" width="90" height="22"/><rect class="led" x="124.0" y="82.5" width="5" height="5"/><text x="136.0" y="88.6" font-size="10" letter-spacing="0.6">CELDA MT</text></g></g>
+<g style="--d:.45s" class="pl-s"><circle class="sim-l" cx="271" cy="46" r="14"/><circle class="sim-l" cx="289" cy="46" r="14"/><g class="pl"><rect x="215.0" y="74" width="130" height="22"/><rect class="led" x="222.0" y="82.5" width="5" height="5"/><text x="234.0" y="88.6" font-size="10" letter-spacing="0.6">TRANSFORMADOR</text></g></g>
+</a>
+<a class="nodo" href="paneles-solares/" aria-label="Paneles solares">
+<g style="--d:.1s" class="pl-s"><polygon class="sim sol-s" points="40,170 56,126 116,126 100,170"/><path class="sim-l sol-s" d="M76 126 L60 170 M96 126 L80 170 M48 148 H108"/><g class="pl"><rect x="5.0" y="178" width="146" height="22"/><rect class="led" x="12.0" y="186.5" width="5" height="5"/><text x="24.0" y="192.6" font-size="10" letter-spacing="0.6">PANELES SOLARES</text></g></g>
+<g style="--d:.4s" class="pl-s"><rect class="sim" x="196" y="126" width="44" height="44"/><path class="sim-l" d="M196 170 L240 126"/><text class="sim-t" x="201" y="143" font-size="12">=</text><text class="sim-t" x="224" y="165" font-size="13">~</text><g class="pl"><rect x="173.0" y="178" width="90" height="22"/><rect class="led" x="180.0" y="186.5" width="5" height="5"/><text x="192.0" y="192.6" font-size="10" letter-spacing="0.6">INVERSOR</text></g></g>
+</a>
+<a class="nodo" href="#serv-tableros" aria-label="Tableros eléctricos">
+<g style="--d:.8s" class="pl-s"><rect x="336" y="26" width="28" height="388" fill="transparent"/><g class="pl"><rect x="190.0" y="216" width="146" height="22"/><rect class="led" x="197.0" y="224.5" width="5" height="5"/><text x="209.0" y="230.6" font-size="10" letter-spacing="0.6">TABLERO GENERAL</text></g></g></a>
+<a class="nodo" href="#serv-instalaciones" aria-label="Instalaciones: motores y bombas">
+<g style="--d:1.25s" class="pl-s"><circle class="sim" cx="56" cy="270" r="18"/><text class="sim-t" x="56" y="276" font-size="16" text-anchor="middle">M</text><g class="pl"><rect x="84.0" y="282" width="154" height="22"/><rect class="led" x="91.0" y="290.5" width="5" height="5"/><text x="103.0" y="296.6" font-size="10" letter-spacing="0.6">MOTORES Y BOMBAS</text></g></g></a>
+<a class="nodo" href="#serv-automatizacion" aria-label="Automatización y control">
+<g style="--d:1.35s" class="pl-s"><rect class="sim" x="34" y="314" width="44" height="32"/><text class="sim-t" x="56" y="334" font-size="11" text-anchor="middle" letter-spacing=".6">PLC</text><g class="pl"><rect x="84.0" y="342" width="186" height="22"/><rect class="led" x="91.0" y="350.5" width="5" height="5"/><text x="103.0" y="356.6" font-size="10" letter-spacing="0.6">AUTOMATIZACIÓN Y PLC</text></g></g></a>
+<a class="nodo" href="#serv-instalaciones" aria-label="Instalaciones: iluminación">
+<g style="--d:1.45s" class="pl-s"><circle class="sim" cx="56" cy="390" r="18"/><path class="sim-l" d="M43 377 L69 403 M69 377 L43 403"/><g class="pl"><rect x="84.0" y="402" width="114" height="22"/><rect class="led" x="91.0" y="410.5" width="5" height="5"/><text x="103.0" y="416.6" font-size="10" letter-spacing="0.6">ILUMINACIÓN</text></g></g></a>
+</svg>
     </div>
   </div>
 </section>
 
-<!-- ░░ TICKER ░░ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__in"><span>PANELES SOLARES &nbsp;/&nbsp; INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span><span>PANELES SOLARES &nbsp;/&nbsp; INSTALACIONES INDUSTRIALES &nbsp;/&nbsp; MEDIA TENSIÓN &nbsp;/&nbsp; AUTOMATIZACIÓN Y CONTROL &nbsp;/&nbsp; TABLEROS ELÉCTRICOS &nbsp;/&nbsp; MANTENIMIENTO INDUSTRIAL &nbsp;/&nbsp; AGROINDUSTRIA &nbsp;/&nbsp;&nbsp;</span></div>
-</div>
+<!-- ░░ PLACA DE DATOS ░░ -->
+<section class="datos" aria-label="AyB en datos">
+  <span class="remache" style="left:14px;top:12px" aria-hidden="true"></span><span class="remache" style="right:14px;top:12px" aria-hidden="true"></span>
+  <span class="remache" style="left:14px;bottom:12px" aria-hidden="true"></span><span class="remache" style="right:14px;bottom:12px" aria-hidden="true"></span>
+  <div class="wrap datos__in">
+    <div class="dato"><small>Experiencia</small><b>10 a 20 años de cada socio</b></div>
+    <div class="dato"><small>Cobertura</small><b>Paraná y 110 km, incluida Santa Fe</b></div>
+    <div class="dato"><small>Atención</small><b>Directa con los socios</b></div>
+    <div class="dato"><small>Trabajo</small><b>Equipo propio, bajo norma</b></div>
+  </div>
+</section>
+
+<!-- ░░ PANELES SOLARES ░░ -->
+<section class="naranja solar" id="solar" aria-labelledby="solar-t">
+  <div class="wrap solar__in">
+    <div>
+      <span class="placa placa--g">Servicio destacado</span>
+      <h2 class="d2" id="solar-t">Paneles solares para industria y&nbsp;agro</h2>
+      <p>Generá tu propia energía en los techos de tus galpones o en tu terreno, y reducí entre un 40% y un 70% la factura de luz de tu planta.</p>
+      <ul class="lista"><li>Analizamos tus facturas y tu consumo real</li><li>Proyectamos tu ahorro y en cuánto tiempo recuperás la inversión</li><li>Instalación y conexión al tablero con equipo propio</li></ul>
+      <div class="solar__ctas">
+        <a class="btn btn--g" href="paneles-solares/">Conocé la propuesta<svg width="18" height="18" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+        <a class="btn btn--linea-g" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20pedir%20un%20presupuesto%20de%20paneles%20solares%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>Presupuesto por WhatsApp</a>
+      </div>
+    </div>
+    <div class="solar__vis">
+      <img src="img/ayb-paneles-solares-3d.webp" alt="Ilustración 3D de una mesa de paneles solares sobre terreno, conectada a un tablero" width="1200" height="780" loading="lazy">
+      <p class="solar__dato"><b>40–70%</b><span>menos en la factura de luz</span></p>
+    </div>
+  </div>
+</section>
 
 <!-- ░░ SERVICIOS ░░ -->
-<section class="sec sec--a sec--borde" id="servicios">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2" style="max-width:14ch">Servicios para industria y agro</h2>
+<section class="sec claro plano" id="servicios" aria-labelledby="serv-t">
+  <div class="wrap serv">
+    <div class="serv__intro">
+      <span class="placa placa--t">Servicios</span>
+      <h2 class="d2" id="serv-t">Servicios para industria y&nbsp;agro</h2>
       <p class="lead">Cubrimos el ciclo eléctrico completo de tu planta: desde la media tensión hasta el control de proceso, y ahora también la generación solar.</p>
+      <a class="serv__sol" href="paneles-solares/"><span class="punto"></span>Paneles solares</a>
     </div>
-
-    <!-- Destacado: paneles solares -->
-    <article class="sol">
-      <div class="sol__txt">
-        <div class="sol__tag">Servicio destacado</div>
-        <h3>Paneles solares para industria y agro</h3>
-        <p>Generá tu propia energía en los techos de tus galpones o en tu terreno, y reducí entre un 40% y un 70% la factura de luz de tu planta.</p>
-        <ul class="lista">
-          <li>Analizamos tus facturas y tu consumo real</li>
-          <li>Proyectamos tu ahorro y en cuánto tiempo recuperás la inversión</li>
-          <li>Instalación y conexión al tablero con equipo propio</li>
-        </ul>
-        <div class="sol__ctas">
-          <a class="btn btn--naranja btn--chico" href="paneles-solares/">Conocé la propuesta</a>
-          <a class="btn btn--borde btn--chico" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20pedir%20un%20presupuesto%20de%20paneles%20solares%20para%20mi%20planta." target="_blank" rel="noopener">Presupuesto por WhatsApp</a>
-        </div>
-      </div>
-      <div class="sol__img">
-        <img src="img/ayb-paneles-solares-3d.webp" alt="Ilustración 3D de una mesa de paneles solares sobre terreno, conectada a un tablero" width="1200" height="780" loading="lazy">
-        <div class="sol__dato"><small>Ahorro en la factura</small><b>40–70<span>%</span></b></div>
-      </div>
-    </article>
-
-    <!-- Ficha de servicios: todo el detalle a la vista -->
-    <div class="ficha">
-      <article class="serv">
+    <div class="serv__lista">
+      <article class="srow" id="serv-instalaciones">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 4 V14" stroke="#F47A1F" stroke-width="2.4"/><circle cx="26" cy="30" r="15" fill="none" stroke="currentColor" stroke-width="2.2"/><text x="26" y="36" text-anchor="middle" font-family="Chakra Petch, sans-serif" font-weight="700" font-size="16" fill="currentColor">M</text></svg>
         <div>
-          <h3>Instalaciones eléctricas industriales</h3>
+          <h3 class="d3">Instalaciones eléctricas industriales</h3>
           <p>Obra eléctrica completa, desde el tablero general hasta el último motor. Instalaciones nuevas y ampliaciones en planta en funcionamiento.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20instalaciones%20el%C3%A9ctricas%20industriales." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20instalaciones%20el%C3%A9ctricas%20industriales." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista">
-          <li>Instalación eléctrica completa de plantas y galpones</li>
-          <li>Tendido de cableado de potencia y comando</li>
-          <li>Protecciones y puesta a tierra</li>
-          <li>Alimentación y puesta en marcha de motores</li>
-          <li>Iluminación LED industrial</li>
-          <li>Grupos electrógenos y transferencias automáticas</li>
-        </ul>
+        <ul class="lista"><li>Instalación eléctrica completa de plantas y galpones</li><li>Tendido de cableado de potencia y comando</li><li>Protecciones y puesta a tierra</li><li>Alimentación y puesta en marcha de motores</li><li>Iluminación LED industrial</li><li>Grupos electrógenos y transferencias automáticas</li></ul>
       </article>
-      <article class="serv">
+      <article class="srow" id="serv-mt">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><path d="M2 26 H9 M43 26 H50" stroke="#F47A1F" stroke-width="2.4"/><circle cx="20" cy="26" r="11" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="32" cy="26" r="11" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
         <div>
-          <h3>Media y alta tensión</h3>
+          <h3 class="d3">Media y alta tensión</h3>
           <p>Es el servicio que casi no se consigue en Entre Ríos. Hoy la mayoría de las plantas de la región traen técnicos de otra provincia cada vez que necesitan tocar la media tensión.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20media%20y%20alta%20tensi%C3%B3n." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20media%20y%20alta%20tensi%C3%B3n." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista lista--una">
-          <li>Mantenimiento de instalaciones de media y alta tensión</li>
-          <li>Mantenimiento preventivo para equipos de media tensión que hoy funcionan sin un service periódico</li>
-        </ul>
+        <ul class="lista"><li>Mantenimiento de instalaciones de media y alta tensión</li><li>Mantenimiento preventivo para equipos de media tensión que hoy funcionan sin un service periódico</li></ul>
       </article>
-      <article class="serv">
+      <article class="srow" id="serv-automatizacion">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><rect x="8" y="14" width="36" height="24" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M14 8 V14 M22 8 V14 M30 8 V14 M38 8 V14 M14 38 V44 M22 38 V44 M30 38 V44 M38 38 V44" stroke="currentColor" stroke-width="2"/><rect x="13" y="22" width="7" height="7" fill="#F47A1F"/><path d="M25 25.5 H38" stroke="currentColor" stroke-width="2"/></svg>
         <div>
-          <h3>Automatización y control</h3>
+          <h3 class="d3">Automatización y control</h3>
           <p>Procesos que hoy se manejan a mano pasan a funcionar solos, con lógica programada y sensores que reaccionan antes que una persona.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20automatizaci%C3%B3n%20y%20control." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20automatizaci%C3%B3n%20y%20control." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista">
-          <li>PLC para automatizar procesos completos</li>
-          <li>Sensores de temperatura y humedad</li>
-          <li>Sensores de nivel y de temperatura en silo</li>
-          <li>Contactores y variadores de frecuencia</li>
-          <li>Programación y puesta en marcha</li>
-          <li>Temporizadores y programadores</li>
-          <li>Alarmas por alta temperatura, falta de agua o falla eléctrica</li>
-        </ul>
+        <ul class="lista"><li>PLC para automatizar procesos completos</li><li>Sensores de temperatura y humedad</li><li>Sensores de nivel y de temperatura en silo</li><li>Contactores y variadores de frecuencia</li><li>Programación y puesta en marcha</li><li>Temporizadores y programadores</li><li>Alarmas por alta temperatura, falta de agua o falla eléctrica</li></ul>
       </article>
-      <article class="serv">
+      <article class="srow" id="serv-tableros">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><rect x="10" y="4" width="32" height="44" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 11 H36" stroke="#F47A1F" stroke-width="3"/><rect x="15" y="18" width="7" height="12" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="25" y="18" width="7" height="12" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="35" y="18" width="2" height="12" fill="currentColor"/><path d="M16 38 H36" stroke="currentColor" stroke-width="2"/></svg>
         <div>
-          <h3>Tableros eléctricos</h3>
+          <h3 class="d3">Tableros eléctricos</h3>
           <p>Diseño, armado y mantenimiento de tableros de comando y protección, dimensionados para la carga real de tu planta.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20tableros%20el%C3%A9ctricos." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20tableros%20el%C3%A9ctricos." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista">
-          <li>Tableros de comando y protección</li>
-          <li>Tableros eléctricos para silos</li>
-          <li>Arranque y protección de motores</li>
-          <li>Variadores de frecuencia para motores</li>
-          <li>Mantenimiento de tableros existentes</li>
-          <li>Detección de fallas eléctricas</li>
-        </ul>
+        <ul class="lista"><li>Tableros de comando y protección</li><li>Tableros eléctricos para silos</li><li>Arranque y protección de motores</li><li>Variadores de frecuencia para motores</li><li>Mantenimiento de tableros existentes</li><li>Detección de fallas eléctricas</li></ul>
       </article>
-      <article class="serv">
+      <article class="srow" id="serv-mantenimiento">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><path d="M8 36 A18 18 0 0 1 44 36" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 26 l3 2 M26 18 v3.5 M40 26 l-3 2" stroke="currentColor" stroke-width="2"/><path d="M26 36 L36 24" stroke="#F47A1F" stroke-width="2.6" stroke-linecap="round"/><circle cx="26" cy="36" r="3" fill="currentColor"/><path d="M8 44 H44" stroke="currentColor" stroke-width="2"/></svg>
         <div>
-          <h3>Mantenimiento industrial</h3>
+          <h3 class="d3">Mantenimiento industrial</h3>
           <p>Revisar antes de que pare, no después de que paró.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20mantenimiento%20industrial." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20mantenimiento%20industrial." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista">
-          <li>Revisión de tableros</li>
-          <li>Revisión de motores</li>
-          <li>Revisión de sensores y automatismos</li>
-          <li>Ajustes y calibración</li>
-          <li>Mantenimiento preventivo y reparación de instalaciones</li>
-        </ul>
+        <ul class="lista"><li>Revisión de tableros</li><li>Revisión de motores</li><li>Revisión de sensores y automatismos</li><li>Ajustes y calibración</li><li>Mantenimiento preventivo y reparación de instalaciones</li></ul>
       </article>
-      <article class="serv">
+      <article class="srow" id="serv-retrofit">
+        <svg class="srow__ico" viewBox="0 0 52 52" aria-hidden="true"><path d="M40 18 A16 16 0 1 0 42 32" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M40 8 V18 H30" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="19" y="19" width="14" height="14" fill="#F47A1F"/></svg>
         <div>
-          <h3>Modernización y retrofit</h3>
+          <h3 class="d3">Modernización y retrofit</h3>
           <p>No hace falta reemplazar todo el equipo. Se actualiza la parte de control y la máquina sigue trabajando, con menos consumo y menos mano de obra.</p>
-          <a class="serv__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20modernizaci%C3%B3n%20y%20retrofit." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
+          <a class="srow__wa" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quiero%20consultar%20por%20modernizaci%C3%B3n%20y%20retrofit." target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#i-wa"/></svg>Consultar por WhatsApp</a>
         </div>
-        <ul class="lista">
-          <li>Reemplazo de instalaciones antiguas por sistemas automáticos</li>
-          <li>Retrofit de máquinas y equipamiento existente</li>
-          <li>Actualización de tableros obsoletos</li>
-          <li>Ahorro de energía y de mano de obra</li>
-          <li>Soluciones a medida cuando la solución estándar del mercado no ajusta</li>
-        </ul>
+        <ul class="lista"><li>Reemplazo de instalaciones antiguas por sistemas automáticos</li><li>Retrofit de máquinas y equipamiento existente</li><li>Actualización de tableros obsoletos</li><li>Ahorro de energía y de mano de obra</li><li>Soluciones a medida cuando la solución estándar del mercado no ajusta</li></ul>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ░░ RUBROS ░░ -->
-<section class="sec sec--a" id="rubros" style="padding-top:0">
+<section class="sec rubros" id="rubros" aria-labelledby="rubros-t">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2" style="max-width:16ch">Qué resolvemos en tu rubro</h2>
+    <div class="cab-sec">
+      <h2 class="d2" id="rubros-t">Qué resolvemos en tu rubro</h2>
       <p class="lead">Los dos rubros donde más trabajamos, con todo lo que hacemos en cada uno.</p>
     </div>
-    <div class="tabs">
-      <div class="tabs__bar" role="tablist" aria-label="Rubro">
-        <button class="tab" type="button" role="tab" id="tab-avicola" aria-controls="r-avicola" aria-selected="true">Galpones avícolas</button>
-        <button class="tab" type="button" role="tab" id="tab-silos" aria-controls="r-silos" aria-selected="false" tabindex="-1">Plantas de silos y acopio</button>
-      </div>
-
-      <div class="rubro" role="tabpanel" id="r-avicola" aria-labelledby="tab-avicola">
-        <div class="rubro__solar">
-          <div>
-            <h3>Paneles solares para tu granja</h3>
-            <p>En los techos de tus galpones o en un sector libre del campo. Esa energía alimenta lo que más consume tu galpón: extractores, ventiladores, comederos, bebederos e iluminación.</p>
-          </div>
-          <a class="btn btn--borde btn--chico" href="paneles-solares/">Ver paneles solares</a>
-        </div>
-        <div class="grupos">
-          <div class="grupo">
-            <h3>Instalación y energía</h3>
-            <ul class="lista">
-              <li>Instalaciones eléctricas completas de galpones</li>
-              <li>Tableros eléctricos de comando y protección</li>
-              <li>Arranque y protección de motores</li>
-              <li>Grupos electrógenos y transferencias automáticas</li>
-              <li>Iluminación LED industrial</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Automatización</h3>
-            <ul class="lista">
-              <li>Ventiladores y extractores</li>
-              <li>Bombas de agua</li>
-              <li>Bebederos y sistemas de agua</li>
-              <li>Alimentadores</li>
-              <li>Iluminación por horarios y etapas de crianza</li>
-              <li>Temporizadores y programadores</li>
-              <li>Variadores de frecuencia para motores</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Sensores y alarmas</h3>
-            <ul class="lista">
-              <li>Sensores de temperatura y humedad</li>
-              <li>Ventilación automática según temperatura</li>
-              <li>Alarmas por alta temperatura, falta de agua o falla eléctrica</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Mantenimiento</h3>
-            <ul class="lista">
-              <li>Mantenimiento preventivo y reparación de instalaciones</li>
-            </ul>
-          </div>
+    <div class="tabs__bar" role="tablist" aria-label="Rubro">
+      <button class="tab" type="button" role="tab" id="tab-avicola" aria-controls="r-avicola" aria-selected="true">Galpones avícolas</button>
+      <button class="tab" type="button" role="tab" id="tab-silos" aria-controls="r-silos" aria-selected="false" tabindex="-1">Plantas de silos y acopio</button>
+    </div>
+    <div class="rubro" role="tabpanel" id="r-avicola" aria-labelledby="tab-avicola">
+      <div>
+<svg class="rubro__ilu" viewBox="0 0 480 200" aria-hidden="true">
+<path class="lin-s" d="M10 182 H470"/>
+<polygon class="lin" points="40,182 40,112 95,82 150,112 150,182"/>
+<polyline class="lin" points="150,112 440,112 440,182"/>
+<polygon class="lin" points="95,82 385,82 440,112 150,112"/>
+<path class="lin-s" d="M160 132 H430 M160 146 H430"/>
+<path class="lin-s" d="M200 132 V182 M260 132 V182 M320 132 V182 M380 132 V182"/>
+<polygon class="acc" points="124.3,87.1 168.3,87.1 204.7,106.9 160.7,106.9"/>
+<polygon class="acc" points="176.3,87.1 220.3,87.1 256.6,106.9 212.7,106.9"/>
+<polygon class="acc" points="228.3,87.1 272.4,87.1 308.6,106.9 264.6,106.9"/>
+<polygon class="acc" points="280.4,87.1 324.4,87.1 360.6,106.9 316.6,106.9"/>
+<polygon class="acc" points="332.4,87.1 376.4,87.1 412.6,106.9 368.6,106.9"/>
+<circle class="lin" cx="72" cy="150" r="17"/>
+<path class="acc" d="M72 150 L72.0 137.0"/>
+<path class="acc" d="M72 150 L60.7 156.5"/>
+<path class="acc" d="M72 150 L83.3 156.5"/>
+<circle class="lin" cx="118" cy="150" r="17"/>
+<path class="acc" d="M118 150 L118.0 137.0"/>
+<path class="acc" d="M118 150 L106.7 156.5"/>
+<path class="acc" d="M118 150 L129.3 156.5"/>
+</svg>
+        <div class="rubro__sol">
+          <h3>Paneles solares para tu granja</h3>
+          <p>En los techos de tus galpones o en un sector libre del campo. Esa energía alimenta lo que más consume tu galpón: extractores, ventiladores, comederos, bebederos e iluminación.</p>
+          <a class="link-n" href="paneles-solares/">Ver paneles solares<svg width="16" height="16" aria-hidden="true"><use href="#i-flecha"/></svg></a>
         </div>
       </div>
-
-      <div class="rubro" role="tabpanel" id="r-silos" aria-labelledby="tab-silos">
-        <div class="rubro__solar">
-          <div>
-            <h3>Paneles solares para tu planta de silos</h3>
-            <p>En los techos de galpones y depósitos o en un sector libre del predio. Generan de día, cuando la planta recibe y mueve el grano: norias, cintas transportadoras y aireación.</p>
-          </div>
-          <a class="btn btn--borde btn--chico" href="paneles-solares/">Ver paneles solares</a>
+      <div class="grupos">
+        <div class="grupo"><h4>Instalación y energía</h4><ul class="lista"><li>Instalaciones eléctricas completas de galpones</li><li>Tableros eléctricos de comando y protección</li><li>Arranque y protección de motores</li><li>Grupos electrógenos y transferencias automáticas</li><li>Iluminación LED industrial</li></ul></div>
+        <div class="grupo"><h4>Automatización</h4><ul class="lista"><li>Ventiladores y extractores</li><li>Bombas de agua</li><li>Bebederos y sistemas de agua</li><li>Alimentadores</li><li>Iluminación por horarios y etapas de crianza</li><li>Temporizadores y programadores</li><li>Variadores de frecuencia para motores</li></ul></div>
+        <div class="grupo"><h4>Sensores y alarmas</h4><ul class="lista"><li>Sensores de temperatura y humedad</li><li>Ventilación automática según temperatura</li><li>Alarmas por alta temperatura, falta de agua o falla eléctrica</li></ul></div>
+        <div class="grupo"><h4>Mantenimiento</h4><ul class="lista"><li>Mantenimiento preventivo y reparación de instalaciones</li></ul></div>
+      </div>
+    </div>
+    <div class="rubro" role="tabpanel" id="r-silos" aria-labelledby="tab-silos">
+      <div>
+<svg class="rubro__ilu" viewBox="0 0 480 220" aria-hidden="true">
+<path class="lin-s" d="M10 202 H470"/>
+<path class="lin" d="M46 202 V84 M126 84 V202 M46 84 L86 52 L126 84 M46 84 H126"/>
+<path class="lin-s" d="M46 114 H126 M46 144 H126 M46 174 H126"/>
+<circle class="acc" cx="86" cy="188" r="8"/>
+<path class="lin" d="M140 202 V84 M220 84 V202 M140 84 L180 52 L220 84 M140 84 H220"/>
+<path class="lin-s" d="M140 114 H220 M140 144 H220 M140 174 H220"/>
+<circle class="acc" cx="180" cy="188" r="8"/>
+<path class="lin" d="M256 202 V30 M274 30 V202"/>
+<rect class="acc" x="248" y="12" width="34" height="20"/>
+<path class="lin" d="M250 26 L186 54 M250 26 L92 54"/>
+<path class="lin-s" d="M226 194 H256"/>
+<polygon class="lin" points="306,202 306,140 376,112 452,140 452,202"/>
+<path class="lin" d="M306 140 H452"/>
+<polygon class="acc" points="320,134 336,124 362,124 346,134"/>
+<polygon class="acc" points="352,134 368,124 394,124 378,134"/>
+<polygon class="acc" points="384,134 400,124 426,124 410,134"/>
+</svg>
+        <div class="rubro__sol">
+          <h3>Paneles solares para tu planta de silos</h3>
+          <p>En los techos de galpones y depósitos o en un sector libre del predio. Generan de día, cuando la planta recibe y mueve el grano: norias, cintas transportadoras y aireación.</p>
+          <a class="link-n" href="paneles-solares/">Ver paneles solares<svg width="16" height="16" aria-hidden="true"><use href="#i-flecha"/></svg></a>
         </div>
-        <div class="grupos">
-          <div class="grupo">
-            <h3>Tableros e iluminación</h3>
-            <ul class="lista">
-              <li>Tableros eléctricos para silos</li>
-              <li>Iluminación de planta</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Movimiento de grano</h3>
-            <ul class="lista">
-              <li>Arranque de norias y elevadores</li>
-              <li>Automatización de sinfines</li>
-              <li>Control de cintas transportadoras</li>
-              <li>Control de motores mediante variadores</li>
-              <li>Control de bombas</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Aireación y secado</h3>
-            <ul class="lista">
-              <li>Automatización de ventiladores de aireación</li>
-              <li>Automatización de secadoras</li>
-              <li>PLC para automatizar procesos completos</li>
-            </ul>
-          </div>
-          <div class="grupo">
-            <h3>Sensores y mantenimiento</h3>
-            <ul class="lista">
-              <li>Sensores de nivel de cereal</li>
-              <li>Sensores de temperatura dentro de silos</li>
-              <li>Mantenimiento de tableros</li>
-              <li>Detección de fallas eléctricas</li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div class="grupos">
+        <div class="grupo"><h4>Tableros e iluminación</h4><ul class="lista"><li>Tableros eléctricos para silos</li><li>Iluminación de planta</li></ul></div>
+        <div class="grupo"><h4>Movimiento de grano</h4><ul class="lista"><li>Arranque de norias y elevadores</li><li>Automatización de sinfines</li><li>Control de cintas transportadoras</li><li>Control de motores mediante variadores</li><li>Control de bombas</li></ul></div>
+        <div class="grupo"><h4>Aireación y secado</h4><ul class="lista"><li>Automatización de ventiladores de aireación</li><li>Automatización de secadoras</li><li>PLC para automatizar procesos completos</li></ul></div>
+        <div class="grupo"><h4>Sensores y mantenimiento</h4><ul class="lista"><li>Sensores de nivel de cereal</li><li>Sensores de temperatura dentro de silos</li><li>Mantenimiento de tableros</li><li>Detección de fallas eléctricas</li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ░░ PROCESO ░░ -->
-<section class="sec sec--b" id="proceso">
-  <div class="proceso-bg" aria-hidden="true"></div>
-  <div class="wrap" style="position:relative">
-    <div class="sec-head sec-head--centro">
-      <div class="eyebrow">// Cómo trabajamos</div>
-      <h2 class="h2">Un proceso claro, sin sorpresas</h2>
+<section class="sec proceso" id="proceso" aria-labelledby="proc-t">
+  <div class="wrap">
+    <div class="cab-sec">
+      <div>
+        <span class="placa">Cómo trabajamos</span>
+        <h2 class="d2" id="proc-t" style="margin-top:20px">Un proceso claro, sin sorpresas</h2>
+      </div>
     </div>
-    <ol class="pasos">
-      <li class="paso"><div class="paso__n" aria-hidden="true">01</div><h3>Relevamiento</h3><p>Vamos a tu planta, medimos y entendemos el proceso antes de proponer nada.</p></li>
-      <li class="paso"><div class="paso__n" aria-hidden="true">02</div><h3>Propuesta</h3><p>Te pasamos una propuesta técnica clara: alcance, plazos y costos sin sorpresas.</p></li>
-      <li class="paso"><div class="paso__n" aria-hidden="true">03</div><h3>Ejecución</h3><p>Equipo propio en obra, trabajando bajo norma y con la planta operativa.</p></li>
-      <li class="paso"><div class="paso__n" aria-hidden="true">04</div><h3>Puesta en marcha</h3><p>Probamos, dejamos funcionando y te entregamos la documentación as-built.</p></li>
+    <ol class="circuito" id="circuito">
+      <li class="etapa"><span class="etapa__n" aria-hidden="true">01</span><h3>Relevamiento</h3><p>Vamos a tu planta, medimos y entendemos el proceso antes de proponer nada.</p></li>
+      <li class="etapa"><span class="etapa__n" aria-hidden="true">02</span><h3>Propuesta</h3><p>Te pasamos una propuesta técnica clara: alcance, plazos y costos sin sorpresas.</p></li>
+      <li class="etapa"><span class="etapa__n" aria-hidden="true">03</span><h3>Ejecución</h3><p>Equipo propio en obra, trabajando bajo norma y con la planta operativa.</p></li>
+      <li class="etapa"><span class="etapa__n" aria-hidden="true">04</span><h3>Puesta en marcha</h3><p>Probamos, dejamos funcionando y te entregamos la documentación as-built.</p></li>
     </ol>
   </div>
 </section>
 
 <!-- ░░ ÚLTIMOS TRABAJOS ░░ -->
-<section class="sec sec--a sec--borde" id="trabajos">
+<section class="sec trabajos" id="trabajos" aria-labelledby="trab-t">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2">Últimos trabajos</h2>
+    <div class="cab-sec">
+      <h2 class="d2" id="trab-t">Últimos trabajos</h2>
       <p class="lead">Fotos de obra en planta.</p>
     </div>
-    <div class="obras">
-      <figure class="obra">
-        <img src="img/ayb-cableado-potencia-obra-01.webp" alt="Conexionado de cables de potencia en tablero general" width="800" height="600" loading="lazy">
-        <span class="obra__tag">Instalación</span>
+    <div class="mosaico">
+      <figure class="foto foto--a">
+        <img src="img/ayb-cableado-potencia-obra-01-xl.webp" srcset="img/ayb-cableado-potencia-obra-01.webp 800w, img/ayb-cableado-potencia-obra-01-xl.webp 1400w" sizes="(max-width:1000px) 100vw, 60vw" alt="Conexionado de cables de potencia en tablero general" width="1400" height="1050" loading="lazy">
+        <span class="placa">Instalación</span>
         <figcaption>Conexionado de cables de potencia en tablero general</figcaption>
       </figure>
-      <figure class="obra">
-        <img src="img/ayb-sala-tableros-baja-tension.webp" alt="Sala de tableros de baja tensión" width="800" height="600" loading="lazy">
-        <span class="obra__tag">Instalación</span>
-        <figcaption>Sala de tableros de baja tensión</figcaption>
-      </figure>
-      <figure class="obra">
-        <img src="img/ayb-tablero-seccional-02.webp" alt="Tablero seccional de comando y protección" width="800" height="1067" loading="lazy">
-        <span class="obra__tag">Tableros</span>
+      <figure class="foto foto--b">
+        <img src="img/ayb-tablero-seccional-02.webp" alt="Tablero seccional de comando y protección" width="800" height="1067" loading="lazy" style="object-position:50% 40%">
+        <span class="placa">Tableros</span>
         <figcaption>Tablero seccional de comando y protección</figcaption>
       </figure>
-      <figure class="obra">
+      <figure class="foto foto--c">
         <img src="img/ayb-celda-media-tension-13kv.webp" alt="Celda de media tensión 13,2 kV en SF6" width="800" height="600" loading="lazy">
-        <span class="obra__tag">Media tensión</span>
+        <span class="placa">Media tensión</span>
         <figcaption>Celda de media tensión 13,2 kV en SF6</figcaption>
+      </figure>
+      <figure class="foto foto--d">
+        <img src="img/ayb-sala-tableros-baja-tension-xl.webp" srcset="img/ayb-sala-tableros-baja-tension.webp 800w, img/ayb-sala-tableros-baja-tension-xl.webp 1400w" sizes="100vw" alt="Sala de tableros de baja tensión" width="1400" height="1050" loading="lazy" style="object-position:50% 55%">
+        <span class="placa">Instalación</span>
+        <figcaption>Sala de tableros de baja tensión</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <!-- ░░ NOSOTROS ░░ -->
-<section class="sec sec--a" id="nosotros" style="padding-top:0">
-  <div class="wrap nos">
-    <div>
-      <div class="eyebrow">// Quiénes somos</div>
-      <h2 class="h2" style="margin-bottom:22px">Dos socios, una forma de trabajar</h2>
-      <p class="nos__p">Somos un equipo técnico de Paraná especializado en electricidad industrial y automatización. Atendemos a fábricas, plantas y al sector agroindustrial de la región.</p>
-      <p class="nos__p nos__p--2">Siempre vas a hablar con uno de los socios, no con un intermediario.</p>
-      <div class="nos__foto">
+<section class="sec claro" id="nosotros" aria-labelledby="nos-t">
+  <div class="wrap">
+    <div class="nos">
+      <figure class="nos__foto">
         <img src="img/ayb-cableado-potencia-obra-02.webp" alt="Cableado de potencia conexionado en obra por AyB Energía Integral" width="1100" height="1467" loading="lazy">
-      </div>
-      <div class="exp">
-        <b>10 a 20 años</b>
-        <p>de experiencia de cada socio en electricidad industrial y automatización, en instalaciones de la industria y el agro de Entre Ríos.</p>
+        <span class="placa placa--g">En obra</span>
+      </figure>
+      <div>
+        <span class="placa placa--t">Quiénes somos</span>
+        <h2 class="d2" id="nos-t">Dos socios, una forma de trabajar</h2>
+        <p class="nos__p">Somos un equipo técnico de Paraná especializado en electricidad industrial y automatización. Atendemos a fábricas, plantas y al sector agroindustrial de la región.</p>
+        <p class="nos__p"><strong>Siempre vas a hablar con uno de los socios, no con un intermediario.</strong></p>
+        <div class="socios">
+          <figure class="socio"><div class="socio__img"><img src="img/ayb-luis-brandolin-md.webp" alt="Luis Brandolin, socio de AyB Energía Integral" width="520" height="520" loading="lazy"></div><figcaption><b>Luis Brandolin</b><span>Socio</span></figcaption></figure>
+          <figure class="socio"><div class="socio__img"><img src="img/ayb-german-arce-md.webp" alt="Germán Arce, socio de AyB Energía Integral" width="520" height="520" loading="lazy"></div><figcaption><b>Germán Arce</b><span>Socio</span></figcaption></figure>
+        </div>
+        <div class="exp"><b>10 a 20 años</b><p>de experiencia de cada socio en electricidad industrial y automatización, en instalaciones de la industria y el agro de Entre Ríos.</p></div>
+        <p class="frase">Trabajamos nosotros, con herramienta propia y bajo norma. No mandamos a un tercero.</p>
+        <div class="valores">
+          <div class="valor"><b>Técnica</b><p>Resolvemos problemas eléctricos complejos con criterio de ingeniería, no a ojo.</p></div>
+          <div class="valor"><b>Confiable</b><p>Cumplimos plazos y dejamos todo documentado. Si decimos que está, está.</p></div>
+          <div class="valor"><b>Cercana</b><p>Hablás siempre con los socios. Sin call centers ni vueltas.</p></div>
+        </div>
       </div>
     </div>
-    <div class="nos__der">
-      <div class="socios">
-        <div class="socio">
-          <img src="img/ayb-luis-brandolin-sm.jpg" alt="Luis Brandolin, socio de AyB Energía Integral" width="132" height="132" loading="lazy">
-          <b>Luis Brandolin</b><span>Socio</span>
-        </div>
-        <div class="socio">
-          <img src="img/ayb-german-arce-sm.jpg" alt="Germán Arce, socio de AyB Energía Integral" width="132" height="132" loading="lazy">
-          <b>Germán Arce</b><span>Socio</span>
-        </div>
-      </div>
-      <p class="nos__frase">Trabajamos nosotros, con herramienta propia y bajo norma. No mandamos a un tercero.</p>
-      <div class="valores">
-        <div class="valor"><b>Técnica</b><p>Resolvemos problemas eléctricos complejos con criterio de ingeniería, no a ojo.</p></div>
-        <div class="valor"><b>Confiable</b><p>Cumplimos plazos y dejamos todo documentado. Si decimos que está, está.</p></div>
-        <div class="valor"><b>Cercana</b><p>Hablás siempre con los socios. Sin call centers ni vueltas.</p></div>
-      </div>
-      <div class="zona">
-        <b>Zona de cobertura</b>
+    <div class="zona">
+      <div>
+        <span class="placa placa--t">Zona de cobertura</span>
+        <h3 class="d3">Vamos en persona a tu planta</h3>
         <p>Paraná y hasta unos 110 km a la redonda, incluida Santa Fe: Crespo, Oro Verde, Diamante, Viale, María Grande, Nogoyá y alrededores.</p>
         <small>Consultanos por trabajos fuera de la zona.</small>
       </div>
+<svg class="mapa" id="mapa" viewBox="0 0 520 520" role="img" aria-labelledby="mapa-t">
+<title id="mapa-t">Mapa esquemático de la zona de cobertura: 110 km alrededor de Paraná, incluidas Santa Fe, Oro Verde, Crespo, Diamante, Viale, María Grande y Nogoyá</title>
+<circle class="anillo anillo-110" cx="260" cy="260" r="220"/>
+<circle class="anillo" cx="260" cy="260" r="100"/>
+<path class="rad" d="M40 260 H480 M260 40 V480"/>
+<path class="rio" d="M300 18 C262 100 268 190 252 250 S232 322 226 346 S196 440 158 506"/>
+<text class="eje" x="250" y="56" text-anchor="end">110 KM</text>
+<text class="eje" x="250" y="154" text-anchor="end">50 KM</text>
+<text class="eje" x="166" y="452" transform="rotate(-62 166 452)">RÍO PARANÁ</text>
+<g class="pueblo" style="--d:0.15s"><circle cx="226.6" cy="238.2" r="5"/><text x="217.6" y="242.7" text-anchor="end">Santa Fe</text></g>
+<g class="pueblo" style="--d:0.24s"><circle cx="261.3" cy="280.6" r="5"/><text x="270.3" y="285.1" text-anchor="start">Oro Verde</text></g>
+<g class="pueblo" style="--d:0.33s"><circle cx="301.2" cy="325.6" r="5"/><text x="310.2" y="330.1" text-anchor="start">Crespo</text></g>
+<g class="pueblo" style="--d:0.42s"><circle cx="238.1" cy="333.9" r="5"/><text x="229.1" y="338.4" text-anchor="end">Diamante</text></g>
+<g class="pueblo" style="--d:0.51s"><circle cx="357.8" cy="290.2" r="5"/><text x="366.8" y="294.7" text-anchor="start">Viale</text></g>
+<g class="pueblo" style="--d:0.60s"><circle cx="377.3" cy="245.3" r="5"/><text x="386.3" y="249.8" text-anchor="start">María Grande</text></g>
+<g class="pueblo" style="--d:0.69s"><circle cx="399.3" cy="406.2" r="5"/><text x="408.3" y="410.7" text-anchor="start">Nogoyá</text></g>
+<g class="centro"><circle class="onda" cx="260" cy="260" r="10"/><circle class="c" cx="260" cy="260" r="9"/><text x="272" y="250">Paraná</text></g>
+</svg>
     </div>
   </div>
 </section>
 
 <!-- ░░ PREGUNTAS FRECUENTES ░░ -->
-<section class="sec sec--b" id="preguntas">
-  <div class="wrap">
-    <div class="sec-head sec-head--centro">
-      <h2 class="h2">Preguntas frecuentes</h2>
+<section class="sec faq-sec" id="preguntas" aria-labelledby="faq-t">
+  <div class="wrap faq-grid">
+    <div class="cab">
+      <h2 class="d2" id="faq-t">Preguntas frecuentes</h2>
+      <p>¿Te queda alguna duda? <a href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener">Escribinos por WhatsApp</a>.</p>
     </div>
     <div class="faq">
-      <details>
-        <summary>¿Qué servicios eléctricos industriales ofrecen?</summary>
-        <p>Instalaciones eléctricas industriales, media y alta tensión, tableros eléctricos, automatización y control, mantenimiento industrial, modernización y retrofit, y paneles solares para industria y agro. Cubrimos el ciclo eléctrico completo de tu planta, con equipo propio y trabajos bajo norma.</p>
-      </details>
-      <details>
-        <summary>¿Instalan paneles solares?</summary>
-        <p>Sí. Instalamos paneles solares en los techos de galpones y depósitos o en un sector libre del predio, para plantas, galpones y productores. Pueden reducir entre un 40% y un 70% la factura de luz de tu planta, según tu consumo y tus horarios. Antes de pasarte un precio analizamos tus facturas y te mostramos la proyección de ahorro. <a href="paneles-solares/">Ver paneles solares</a>.</p>
-      </details>
-      <details>
-        <summary>¿En qué zona trabajan?</summary>
-        <p>Estamos en Paraná y trabajamos hasta unos 110 km a la redonda, incluida la ciudad de Santa Fe. Vamos en persona a tu planta para relevar el trabajo. Para trabajos más lejos, consultanos.</p>
-      </details>
-      <details>
-        <summary>¿Trabajan con media tensión y tableros eléctricos?</summary>
-        <p>Sí. Hacemos mantenimiento de instalaciones de media y alta tensión, armado y mantenimiento de tableros eléctricos, y automatización de procesos industriales, siempre bajo la normativa vigente.</p>
-      </details>
-      <details>
-        <summary>¿Hacen instalaciones y mantenimiento para el sector agroindustrial?</summary>
-        <p>Sí. Trabajamos con galpones avícolas, plantas de silos y acopio y establecimientos productivos de la región, tanto en instalaciones nuevas como en mantenimiento y mejoras.</p>
-      </details>
-      <details>
-        <summary>¿Cuánta experiencia tienen?</summary>
-        <p>Cada socio tiene entre 10 y 20 años de experiencia en electricidad industrial y automatización, en instalaciones de la industria y el agro de Entre Ríos.</p>
-      </details>
-      <details>
-        <summary>¿Cómo pido un presupuesto?</summary>
-        <p>Escribinos por WhatsApp al <a href="https://wa.me/5493434057889" target="_blank" rel="noopener">+54 9 3434 05-7889</a> o al <a href="https://wa.me/5493434559011" target="_blank" rel="noopener">+54 9 3434 55-9011</a>, o por email a <a class="js-mail" href="#contacto">nuestro correo</a>. Coordinamos una visita para relevar tu proyecto y te pasamos una propuesta.</p>
-      </details>
+      <details><summary>¿Qué servicios eléctricos industriales ofrecen?</summary><p>Instalaciones eléctricas industriales, media y alta tensión, tableros eléctricos, automatización y control, mantenimiento industrial, modernización y retrofit, y paneles solares para industria y agro. Cubrimos el ciclo eléctrico completo de tu planta, con equipo propio y trabajos bajo norma.</p></details>
+      <details><summary>¿Instalan paneles solares?</summary><p>Sí. Instalamos paneles solares en los techos de galpones y depósitos o en un sector libre del predio, para plantas, galpones y productores. Pueden reducir entre un 40% y un 70% la factura de luz de tu planta, según tu consumo y tus horarios. Antes de pasarte un precio analizamos tus facturas y te mostramos la proyección de ahorro. <a href="paneles-solares/">Ver paneles solares</a>.</p></details>
+      <details><summary>¿En qué zona trabajan?</summary><p>Estamos en Paraná y trabajamos hasta unos 110 km a la redonda, incluida la ciudad de Santa Fe. Vamos en persona a tu planta para relevar el trabajo. Para trabajos más lejos, consultanos.</p></details>
+      <details><summary>¿Trabajan con media tensión y tableros eléctricos?</summary><p>Sí. Hacemos mantenimiento de instalaciones de media y alta tensión, armado y mantenimiento de tableros eléctricos, y automatización de procesos industriales, siempre bajo la normativa vigente.</p></details>
+      <details><summary>¿Hacen instalaciones y mantenimiento para el sector agroindustrial?</summary><p>Sí. Trabajamos con galpones avícolas, plantas de silos y acopio y establecimientos productivos de la región, tanto en instalaciones nuevas como en mantenimiento y mejoras.</p></details>
+      <details><summary>¿Cuánta experiencia tienen?</summary><p>Cada socio tiene entre 10 y 20 años de experiencia en electricidad industrial y automatización, en instalaciones de la industria y el agro de Entre Ríos.</p></details>
+      <details><summary>¿Cómo pido un presupuesto?</summary><p>Escribinos por WhatsApp al <a href="https://wa.me/5493434057889" target="_blank" rel="noopener">+54 9 3434 05-7889</a> o al <a href="https://wa.me/5493434559011" target="_blank" rel="noopener">+54 9 3434 55-9011</a>, o por email a <a class="js-mail" href="#contacto">nuestro correo</a>. Coordinamos una visita para relevar tu proyecto y te pasamos una propuesta.</p></details>
     </div>
   </div>
 </section>
 
 <!-- ░░ CONTACTO ░░ -->
-<section class="sec sec--a sec--borde contacto" id="contacto">
-  <img class="contacto__rayo" src="img/AyB_rayo_naranja-blanco.png" alt="" aria-hidden="true" loading="lazy">
+<section class="naranja contacto" id="contacto" aria-labelledby="cont-t">
+  <img class="contacto__rayo" src="img/AyB_rayo_naranja-blanco.png" alt="" aria-hidden="true" width="780" height="1536" loading="lazy">
   <div class="wrap contacto__in">
     <div>
-      <h2 class="h2">¿Tenés una planta que resolver?</h2>
+      <h2 class="d1" id="cont-t">¿Tenés una planta que resolver?</h2>
       <p class="contacto__p">Contanos qué necesitás y te respondemos con un presupuesto claro. Sin compromiso.</p>
-      <a class="btn btn--naranja" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
+      <a class="btn btn--g" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Pedí tu presupuesto</a>
     </div>
     <div class="canales">
-      <a class="canal" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener">
-        <span class="canal__ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg></span>
-        <span><small>WhatsApp · Luis Brandolin</small><b>+54 9 3434 05-7889</b></span>
-      </a>
-      <a class="canal" href="https://wa.me/5493434559011?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener">
-        <span class="canal__ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg></span>
-        <span><small>WhatsApp · Germán Arce</small><b>+54 9 3434 55-9011</b></span>
-      </a>
-      <a class="canal js-mail" href="#contacto">
-        <span class="canal__ico canal__ico--mail"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></span>
-        <span><small>Mail</small><b class="js-mail-txt">Escribinos por mail</b></span>
-      </a>
+      <a class="canal" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><span class="canal__ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg></span><span><small>WhatsApp · Luis Brandolin</small><b>+54 9 3434 05-7889</b></span><svg width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      <a class="canal" href="https://wa.me/5493434559011?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><span class="canal__ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg></span><span><small>WhatsApp · Germán Arce</small><b>+54 9 3434 55-9011</b></span><svg width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      <a class="canal js-mail" href="#contacto"><span class="canal__ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><path d="M2 7l10 6 10-6"/></svg></span><span><small>Mail</small><b class="js-mail-txt">Escribinos por mail</b></span><svg width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg></a>
     </div>
   </div>
 </section>
@@ -869,16 +1022,14 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
 
 <!-- ░░ FOOTER ░░ -->
 <footer class="footer">
-  <div class="footer__in">
-    <a class="footer__logo" href="#top" aria-label="AyB Energía Integral, volver arriba"><img src="img/ayb-logo-blanco-sm.png" alt="AyB Energía Integral" width="73" height="54" loading="lazy"></a>
+  <div class="wrap footer__in">
+    <div>
+      <a class="footer__logo" href="#top" aria-label="AyB Energía Integral, volver arriba"><img src="img/ayb-logo-blanco-sm.png" alt="AyB Energía Integral" width="76" height="56" loading="lazy"></a>
+    </div>
     <div class="footer__der">
       <div class="redes">
-        <a href="https://www.instagram.com/aybenergiaintegral/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61591211913274" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14V9.5c0-.28.22-.5.5-.5z"/></svg>
-        </a>
+        <a href="https://www.instagram.com/aybenergiaintegral/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61591211913274" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14V9.5c0-.28.22-.5.5-.5z"/></svg></a>
       </div>
       <div class="footer__txt">
         <div class="footer__rot">Servicios eléctricos industriales · Paraná, Entre Ríos</div>
@@ -892,14 +1043,8 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
 <!-- ░░ WHATSAPP FLOTANTE ░░ -->
 <aside class="wa" id="wa" aria-label="Contacto por WhatsApp">
   <div class="wa__lista" id="wa-lista">
-    <a class="wa__op" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener">
-      <i><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg></i>
-      <span><small>Escribir a</small><b>Luis Brandolin</b></span>
-    </a>
-    <a class="wa__op" href="https://wa.me/5493434559011?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener">
-      <i><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg></i>
-      <span><small>Escribir a</small><b>Germán Arce</b></span>
-    </a>
+    <a class="wa__op" href="https://wa.me/5493434057889?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><i><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg></i><span><small>Escribir a</small><b>Luis Brandolin</b></span></a>
+    <a class="wa__op" href="https://wa.me/5493434559011?text=Hola%20AyB%2C%20quer%C3%ADa%20pedir%20un%20presupuesto%20para%20mi%20planta." target="_blank" rel="noopener"><i><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg></i><span><small>Escribir a</small><b>Germán Arce</b></span></a>
   </div>
   <button class="wa__btn" type="button" aria-label="Escribinos por WhatsApp" aria-expanded="false" aria-controls="wa-lista">
     <svg class="w" width="32" height="32" aria-hidden="true"><use href="#i-wa"/></svg>
@@ -909,7 +1054,6 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
 
 <script>
 (function () {
-  // Año
   var anio = document.getElementById('anio');
   if (anio) anio.textContent = new Date().getFullYear();
 
@@ -919,27 +1063,31 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
   document.querySelectorAll('.js-mail').forEach(function (a) { a.href = href; if (a.textContent.trim() === 'nuestro correo') a.textContent = mail; });
   document.querySelectorAll('.js-mail-txt').forEach(function (b) { b.textContent = mail; });
 
+  var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header: transparente sobre el hero, sólido al bajar
+  var nav = document.getElementById('nav');
+  function navEstado() { nav.classList.toggle('solido', window.scrollY > 24 || menu.classList.contains('abierto')); }
+
   // Menú móvil
   var burger = document.querySelector('.burger'), menu = document.getElementById('menu');
-  function cerrarMenu() { menu.classList.remove('abierto'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Abrir menú'); }
+  function cerrarMenu() { menu.classList.remove('abierto'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Abrir menú'); navEstado(); }
   burger.addEventListener('click', function () {
     var abierto = menu.classList.toggle('abierto');
     burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
     burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+    navEstado();
   });
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', cerrarMenu); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { cerrarMenu(); cerrarWa(); } });
 
   // WhatsApp flotante
   var wa = document.getElementById('wa'), waBtn = wa.querySelector('.wa__btn');
   function cerrarWa() { wa.classList.remove('abierto'); waBtn.setAttribute('aria-expanded', 'false'); }
-  waBtn.addEventListener('click', function () {
-    var abierto = wa.classList.toggle('abierto');
-    waBtn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-  });
+  waBtn.addEventListener('click', function () { var a = wa.classList.toggle('abierto'); waBtn.setAttribute('aria-expanded', a ? 'true' : 'false'); });
   wa.querySelectorAll('.wa__op').forEach(function (a) { a.addEventListener('click', cerrarWa); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { cerrarMenu(); cerrarWa(); } });
 
-  // Pestañas de rubros (sin JS se ven los dos rubros)
+  // Pestañas de rubros (sin JS se ven los dos)
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
   function activar(t, foco) {
     tabs.forEach(function (x) {
@@ -960,6 +1108,34 @@ src="https://www.facebook.com/tr?id=28043557855329111&amp;ev=PageView&amp;noscri
     });
   });
   if (tabs.length) activar(tabs[0]);
+
+  // Proceso: el circuito se energiza a medida que bajás
+  var circ = document.getElementById('circuito');
+  var etapas = circ ? Array.prototype.slice.call(circ.querySelectorAll('.etapa')) : [];
+  function circuito() {
+    if (!circ) return;
+    var p;
+    if (reducir) p = 1;
+    else {
+      var r = circ.getBoundingClientRect(), vh = window.innerHeight;
+      p = Math.min(1, Math.max(0, (vh * 0.78 - r.top) / (r.height + vh * 0.25)));
+    }
+    circ.style.setProperty('--p', p.toFixed(3));
+    etapas.forEach(function (e, i) { e.classList.toggle('on', p >= i / etapas.length + 0.04 || p === 1); });
+  }
+
+  // Mapa: los pueblos aparecen al llegar
+  var mapa = document.getElementById('mapa');
+  if (mapa && 'IntersectionObserver' in window && !reducir) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { mapa.classList.add('on'); io.disconnect(); } }); }, { threshold: 0.35 });
+    io.observe(mapa);
+  } else if (mapa) mapa.classList.add('on');
+
+  var tick = false;
+  function alScroll() { if (!tick) { tick = true; requestAnimationFrame(function () { navEstado(); circuito(); tick = false; }); } }
+  window.addEventListener('scroll', alScroll, { passive: true });
+  window.addEventListener('resize', alScroll);
+  navEstado(); circuito();
 })();
 </script>
 </body>
